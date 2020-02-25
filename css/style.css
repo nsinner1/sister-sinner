@@ -1,0 +1,6 @@
+body * {
+  font-weight: bold;
+  font-size: 24px;
+  color: green;
+  border: 3px solid pink;
+}
