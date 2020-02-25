@@ -1,6 +1,37 @@
-body * {
+/* Answer Section */
+#domAnswerOneText, #domAnswerTwoText {
+  border: 1px black solid;
+  padding: 3px;
+  text-align: center;
+  width: 75%;
+  margin: auto;
+  margin-bottom: 7px;
+}
+
+#domAnswerOneText:hover, #domAnswerTwoText:hover {
+  background-color: lightgray;
+}
+
+/* Question and Question Title Section */
+#domQuestionId {
   font-weight: bold;
   font-size: 24px;
-  color: green;
-  border: 3px solid pink;
+  text-transform: capitalize;
+}
+
+#domQuestionText, #domAnswerOneText, #domAnswerTwoText {
+  font: 18px;
+  margin: 15px;
+}
+
+/* if empty answer no border */
+body * :empty {
+  display: none;
+}
+
+/* image section */
+img {
+  display: block;
+  margin: auto;
+  margin-top: 30px;
 }
