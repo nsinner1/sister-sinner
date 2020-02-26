@@ -1,6 +1,75 @@
-body * {
+#instructions{
+  position: relative;
+  margin-left: 15%;
+  margin-top: 6%;
+}
+
+#label1{
+  margin-left: 38%;
+  font-size: 20px;
+  color: black;
+}
+
+#forbidden{
+  position: absolute;
+  color: black;
+  margin-left: 30%;
+  margin-top: 3%;
+  font-size: 40px;
+}
+
+#body1{
+}
+
+#body2{
+}
+
+#forbidden2{
+  color:black;
+  margin-left: 30%;
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+#instructions2{
+  position: relative;
+  margin-left: 15%;
+  margin-top: 15%;
+  border: 1px white solid;
+}
+
+/* Answer Section */
+#domAnswerOneText, #domAnswerTwoText {
+  border: 1px black solid;
+  padding: 3px;
+  text-align: center;
+  width: 75%;
+  margin: auto;
+  margin-bottom: 7px;
+  cursor: url(../images/transparent_wand_32x32.png), auto;
+
+}
+
+#domAnswerOneText:hover, #domAnswerTwoText:hover {
+  background-color: lightgray;
+}
+
+/* Question Title Section */
+#domQuestionId {
   font-weight: bold;
-  font-size: 24px;
-  color: green;
-  border: 3px solid pink;
+  font-size: 18px;
+  text-transform: capitalize;
+  margin-top: 20%;
+}
+
+/* if empty answer no border */
+body * :empty {
+  display: none;
+}
+
+/* image section */
+img {
+  display: block;
+  margin: auto;
+  margin-top: 30px;
 }
