@@ -3,8 +3,16 @@
 Adam Owada - Natalie Sinner - Dipendra Khatri - Lami Beach
 
 - 2/22
+chose topic/idea for project
+performed all pre-project work 
 - 2/24
+created flow chart
+Implement wand as mouse
+started code for game 
 - 2/25
+added 3 more questions to game
+created form for user to enter name
+added photos to about us page
 - 2/26
 - 2/26
 
