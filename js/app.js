@@ -1,8 +1,9 @@
 'use strict';
 
+
 var questionList = [];
 
-function NewQuestion(questionId, questionText, imgSrc, answerOneText=null, answerOnePath=null, answerTwoText=null, answerTwoPath=null,) {
+function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, answerOnePath = null, answerTwoText = null, answerTwoPath = null, ) {
   this.questionId = questionId;
   this.questionText = questionText;
   this.imgSrc = imgSrc;
@@ -16,15 +17,19 @@ function NewQuestion(questionId, questionText, imgSrc, answerOneText=null, answe
 // add features: button to restart, back track, or nav to home about etc
 
 // new questions go here. includes death state and success state. could include a death text feature for unique death states for each question
-new NewQuestion('death', 'You have died. Your ghost haunts the Forbidden Forest warning wary travelers of the dangers that reside therein.', 'images/yamcha.jpg', 'Play again?', 'devilsnare');
-new NewQuestion('success', 'Congratulations! You have escaped the Forbidden Forest with your life.', 'images/goku.jpg', 'Play again?', 'devilsnare');
+new NewQuestion('death', 'You have died. Your ghost haunts the Forbidden Forest warning wary travelers of the dangers that reside therein.', 'yamcha.jpg', 'Play again?', 'devilsnare');
+new NewQuestion('success', 'Congratulations! You have escaped the Forbidden Forest with your life.', 'goku.jpg', 'Play again?', 'devilsnare');
 new NewQuestion('devilsnare', 'You walk through the dark and damp Forbidden Forest when vines start to wrap around your ankles causing you to stumble. As you fall, the snake-like tendrils wrap even tighter and move up your legs. Do you:', null, 'Struggle and pull your legs free.', 'death', 'Point your wand at the vines and yell, "Incendio!!"', 'fluffy');
 new NewQuestion('fluffy', 'Continuing along the path, you come across a giant three-headed dog guarding a forked intersection. It gets up lazily as three massive heads turn to glare at you with drool leaking out of three sets of teeth. Do you:', null, 'Pull out the flute tucked in your robe and play an improvised song.', 'potions', 'Run! Are you kidding me!? You don\'t want to become dinner!', 'death');
 new NewQuestion('potions', 'Ahead of you are seven bottles of different sizes and colors in row on a large tree stump. A sign next to the stump reads, "Drink one to continue on your journey. Warning: May be hazardous to health. Choose wisely." Do you:', null, 'Drink the smallest bottle in the middle.', 'the ghost', 'Drink the round red bottle on the left.', 'death');
 new NewQuestion('the ghost', 'An insubstantial ghost of a woodsman with a grisly chest injury sends chills down your spine. As you shudder and hurry by, he wheezes out behind you "You.. look lost... to get out of here head north... and remember, *cough hack* .. remember that moss always grows on the north side of a tree. More access to sunlight in these here woods." Continuing on, the path stops at the trunk of a large tree, with trails leading left and right. Sure enough, there is moss growing on the left side of its trunk. Do you:', null, 'Take the trail on the left.', 'the lantern', 'Take the trail on the right.', 'death');
 new NewQuestion('the lantern', 'The earth under your feet is getting squishy and you splash through some shallow muddy puddles. The smell of dank water lingers on the air. 20 yards ahead of you is a small wooden foot bridge. On the other side of the bride, the glow of a lantern hangs in the mist. A voice from that direction says, "Beware of sinkholes in the marsh." Do you:', null, 'Cross the bridge.', 'death', 'Walk around the bridge.', 'sick');
-new NewQuestion('sick', 'After some time passes you aren\'t feeling so good. A worrying feeling at the pit of your stomach tells you that you may be poisoned. Do you:', null, 'Drink a potion brewed of fluxweed, knotgrass, and powdered Bicorn horn.', 'death', 'Swallow a bezoar.', 'success');
-
+new NewQuestion('sick', 'After some time passes you aren\'t feeling so good. A worrying feeling at the pit of your stomach tells you that you may be poisoned. Do you:', null, 'Drink a potion brewed of fluxweed, knotgrass, and powdered Bicorn horn.', 'death', 'Swallow a bezoar.', 'hippogriff');
+new NewQuestion('hippogriff', 'You feel a gust of strong wind behind your back and it is a hippogriff. Do you bow or run?', null, 'You bow.', 'spiders', 'You run.', 'death');
+new NewQuestion('spiders', 'You are surrounded by spiders. Do you step on them or hold them?', null, 'Hold them.', 'death', 'Step on them.', 'centaur');
+new NewQuestion('centaur', 'A centaur is walking towards you. Do you:', null, 'Walk towards the centaur and greet it.', 'fork', 'Turn your back and run.', 'death');
+new NewQuestion('fork', 'After greeting the centaur, you continue on your path. You come to a fork in the road.', null, 'Left path.', 'death', 'Right path.', 'house');
+new NewQuestion('house', 'You walk along the path and the sorting hat appears, "Which house would like me to sort you into?"', null, 'Hufflepuff and Ravenclaw', 'success', 'Gryffindor and Slytherin', 'success');
 
 
 // general purpose function to write anything to the DOM and give it an id
@@ -42,7 +47,7 @@ function findQuestionIndex(id) {
     if (questionList[i].questionId === id) {
       return i;
     }
-  } 
+  }
   console.log('findQLIdIndex() was given a bad Question ID.');
 }
 
