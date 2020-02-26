@@ -1,6 +1,5 @@
 'use strict';
 
-'use strict';
 
 var questionList = [];
 

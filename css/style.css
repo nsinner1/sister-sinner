@@ -1,27 +1,7 @@
-#instructions{
-  position: relative;
-  margin-left: 15%;
-  margin-top: 6%;
-}
 
-#label1{
-  margin-left: 38%;
-  font-size: 20px;
-  color: black;
-}
-
-#forbidden{
-  position: absolute;
-  color: black;
-  margin-left: 30%;
-  margin-top: 3%;
-  font-size: 40px;
-}
-
-#body1{
-}
 
 #body2{
+    cursor: url(../images/transparent_wand_32x32.png), auto;
 }
 
 #forbidden2{
@@ -63,7 +43,7 @@
 }
 
 /* if empty answer no border */
-body * :empty {
+#body2 * :empty {
   display: none;
 }
 
