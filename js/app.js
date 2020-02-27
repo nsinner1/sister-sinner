@@ -55,6 +55,7 @@ function findQuestionIndex(id) {
 
 // generates a question based on id string. could add functionality to display answers randomly
 function loadQuestion(id) {
+  localStorage.setItem('currentPosition', id);
 
   var questionObject = questionList[findQuestionIndex(id)];
   // this could be written in a for loop (probably with an array)
@@ -62,21 +63,11 @@ function loadQuestion(id) {
   renderToDom('questionSectionElement', 'p', questionObject.questionText, 'domQuestionText');
   renderToDom('questionSectionElement', 'p', questionObject.answerOneText, 'domAnswerOneText');
   renderToDom('questionSectionElement', 'p', questionObject.answerTwoText, 'domAnswerTwoText');
-<<<<<<< HEAD
-  document.getElementById('domAnswerOneText').path = questionObject.answerOnePath; // assigns question id to dom answer element to be called in pathHandler
-  document.getElementById('domAnswerOneText').addEventListener('click', pathHandler); // adds event listener to answer element
-  document.getElementById('domAnswerTwoText').path = questionObject.answerTwoPath; // assigns question id to dom answer element to be called in pathHandler
-  document.getElementById('domAnswerTwoText').addEventListener('click', pathHandler); // adds event listener to answer element
-  console.log(questionObject.imgSrc);
-  document.getElementById('questionImage').src = questionObject.imgSrc;
-
-=======
   document.getElementById('domAnswerOneText').path = questionObject.answerOnePath; // assigns next path (represented by .answerOnePath string) to dom answer element to be called in pathHandler()
   document.getElementById('domAnswerOneText').addEventListener('click', pathHandler); // adds event listener to answer element, to create a button
   document.getElementById('domAnswerTwoText').path = questionObject.answerTwoPath; // assigns next path (represented by .answerTwoPath string) to dom answer element to be called in pathHandler()
   document.getElementById('domAnswerTwoText').addEventListener('click', pathHandler); // adds event listener to answer element, to create a button
   document.getElementById('questionImage').src = questionObject.imgSrc; // dynamically generate image by assigning .imgSrc to img element's .src in dom
->>>>>>> 6f4fd9307e1f38c947d7ff886ea13bae562a4c72
 }
 
 // basically the function for clicking on answers. 
@@ -87,44 +78,14 @@ function pathHandler(event) {
   document.getElementById('domQuestionText').remove();
   document.getElementById('domAnswerOneText').remove();
   document.getElementById('domAnswerTwoText').remove();
-<<<<<<< HEAD
-  loadQuestion(event.target.path); // again, this won't work unless .path is assigned 
-
-
-
-=======
   // runs loadQuestion() with the answers path assigned as .path 
   // again, this won't work unless .path is assigned in loadQuestion()
   loadQuestion(event.target.path); 
->>>>>>> 6f4fd9307e1f38c947d7ff886ea13bae562a4c72
 }
 
 // starts game by loading first question
-loadQuestion('devilsnare');
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-Logic from Bus mall:
-
-var sectionEl = document.getElementById('threeImages');
-sectionEl.addEventListener('click', handleClick);
-function handleClick(event) {
-  var clickedImage = event.target.title;
-
-var imageOne = document.getElementById('image1');
-imageOne.title = imageList[pic1].title; // dynamically assign img title to DOM
-*/
-=======
->>>>>>> 6f4fd9307e1f38c947d7ff886ea13bae562a4c72
+if (localStorage.getItem('currentPosition') === 'undefined') {
+  loadQuestion('devilsnare');
+} else {
+  loadQuestion(localStorage.getItem('currentPosition'));
+}
