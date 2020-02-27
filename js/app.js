@@ -1,6 +1,7 @@
 'use strict';
 
 
+
 var questionList = [];
 
 function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, answerOnePath = null, answerTwoText = null, answerTwoPath = null, ) {
@@ -13,6 +14,7 @@ function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, ans
   this.answerTwoPath = answerTwoPath;
   questionList.push(this);
 }
+
 
 // add features: button to restart, back track, or nav to home about etc
 
@@ -53,6 +55,7 @@ function findQuestionIndex(id) {
 
 // generates a question based on id string. could add functionality to display answers randomly
 function loadQuestion(id) {
+
   var questionObject = questionList[findQuestionIndex(id)];
   // this could be written in a for loop (probably with an array)
   renderToDom('questionSectionElement', 'p', questionObject.questionId, 'domQuestionId');
@@ -65,6 +68,7 @@ function loadQuestion(id) {
   document.getElementById('domAnswerTwoText').addEventListener('click', pathHandler); // adds event listener to answer element
   console.log(questionObject.imgSrc);
   document.getElementById('questionImage').src = questionObject.imgSrc;
+
 }
 
 // basically the function for clicking on answers. Which question does each answer lead to? you get it.
@@ -75,9 +79,22 @@ function pathHandler(event) {
   document.getElementById('domAnswerOneText').remove();
   document.getElementById('domAnswerTwoText').remove();
   loadQuestion(event.target.path); // again, this won't work unless .path is assigned 
+
+
+
 }
 
 loadQuestion('devilsnare');
+
+
+
+
+
+
+
+
+
+
 
 
 
