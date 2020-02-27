@@ -1,6 +1,7 @@
 'use strict';
 
 
+
 var questionList = [];
 
 function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, answerOnePath = null, answerTwoText = null, answerTwoPath = null, ) {
@@ -13,6 +14,7 @@ function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, ans
   this.answerTwoPath = answerTwoPath;
   questionList.push(this);
 }
+
 
 // add features: button to restart, back track, or nav to home about etc
 
@@ -53,6 +55,8 @@ function findQuestionIndex(id) {
 
 // generates a question based on id string. could add functionality to display answers randomly
 function loadQuestion(id) {
+  localStorage.setItem('currentPosition', id);
+
   var questionObject = questionList[findQuestionIndex(id)];
   // this could be written in a for loop (probably with an array)
   renderToDom('questionSectionElement', 'p', questionObject.questionId, 'domQuestionId');
@@ -80,4 +84,8 @@ function pathHandler(event) {
 }
 
 // starts game by loading first question
-loadQuestion('devilsnare');
+if (localStorage.getItem('currentPosition') === 'undefined') {
+  loadQuestion('devilsnare');
+} else {
+  loadQuestion(localStorage.getItem('currentPosition'));
+}
