@@ -19,8 +19,8 @@ function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, ans
 // add features: button to restart, back track, or nav to home about etc
 
 // new questions go here. includes death state and success state. could include a death text feature for unique death states for each question
-new NewQuestion('death', 'You have died. Your ghost haunts the Forbidden Forest warning wary travelers of the dangers that reside therein.', 'yamcha.jpg', 'Play again?', 'devilsnare');
-new NewQuestion('success', 'Congratulations! You have escaped the Forbidden Forest with your life.', 'goku.jpg', 'Play again?', 'devilsnare');
+new NewQuestion('death', 'You have died. Your ghost haunts the Forbidden Forest warning wary travelers of the dangers that reside therein.', '../images/particle gif.gif', 'Play again?', 'devilsnare');
+new NewQuestion('success', 'Congratulations! You have escaped the Forbidden Forest with your life.', '../images/goku.jpg', 'Play again?', 'devilsnare');
 new NewQuestion('devilsnare', 'You walk through the dark and damp Forbidden Forest when vines start to wrap around your ankles causing you to stumble. As you fall, the snake-like tendrils wrap even tighter and move up your legs. Do you:', null, 'Struggle and pull your legs free.', 'death', 'Point your wand at the vines and yell, "Incendio!!"', 'fluffy');
 new NewQuestion('fluffy', 'Continuing along the path, you come across a giant three-headed dog guarding a forked intersection. It gets up lazily as three massive heads turn to glare at you with drool leaking out of three sets of teeth. Do you:', null, 'Pull out the flute tucked in your robe and play an improvised song.', 'potions', 'Run! Are you kidding me!? You don\'t want to become dinner!', 'death');
 new NewQuestion('potions', 'Ahead of you are seven bottles of different sizes and colors in row on a large tree stump. A sign next to the stump reads, "Drink one to continue on your journey. Warning: May be hazardous to health. Choose wisely." Do you:', null, 'Drink the smallest bottle in the middle.', 'the ghost', 'Drink the round red bottle on the left.', 'death');
@@ -80,12 +80,21 @@ function pathHandler(event) {
   document.getElementById('domAnswerTwoText').remove();
   // runs loadQuestion() with the answers path assigned as .path 
   // again, this won't work unless .path is assigned in loadQuestion()
-  loadQuestion(event.target.path); 
+  loadQuestion(event.target.path);
 }
 
 // starts game by loading first question
 if (localStorage.getItem('currentPosition') === 'undefined' || 'null') {
-  loadQuestion('devilsnare');
-} else {
   loadQuestion(localStorage.getItem('currentPosition'));
+} else {
+  loadQuestion('devilsnare');
 }
+
+var playAgain = document.getElementById('playAgain');
+
+
+function handleClick(e) {
+  localStorage.clear();
+  location.reload(loadQuestion('devilsnare'));
+}
+playAgain.addEventListener('click', handleClick)
