@@ -94,14 +94,13 @@ function pathHandler(event) {
   loadQuestion(event.target.path);
 }
 
-// starts game by loading question from local storage or first question
-var position = JSON.parse(localStorage.getItem('currentPosition'));
-
 if (position === undefined || position === null) {
   loadQuestion('devilsnare');
 } else {
   loadQuestion(position);
 }
-playAgain.addEventListener('click', handleClick);
 
+// starts game by loading question from local storage or first question
+
+var position = JSON.parse(localStorage.getItem('currentPosition'));
 var getTable = document.getElementById('myTable');
