@@ -4,7 +4,7 @@
 
 var questionList = [];
 
-function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, answerOnePath = null, answerTwoText = null, answerTwoPath = null, ) {
+function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, answerOnePath = null, answerTwoText = null, answerTwoPath = null) {
   this.questionId = questionId;
   this.questionText = questionText;
   this.imgSrc = imgSrc;
