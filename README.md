@@ -28,3 +28,7 @@ added photos to about us page
 
 
 [wireframe3]: images/wireframe3.png
+
+
+Linking to another .html page using a JS function, instead of <a> in html
+https://stackoverflow.com/questions/50925607/link-to-a-html-page-inside-a-javascript-function
