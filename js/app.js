@@ -55,7 +55,7 @@ function findQuestionIndex(id) {
 
 // generates a question based on id string. could add functionality to display answers randomly
 function loadQuestion(id) {
-  localStorage.setItem('currentPosition', id);
+  localStorage.setItem('currentPosition', JSON.stringify(id));
 
   var questionObject = questionList[findQuestionIndex(id)];
   // this could be written in a for loop (probably with an array)
@@ -70,7 +70,7 @@ function loadQuestion(id) {
   document.getElementById('questionImage').src = questionObject.imgSrc; // dynamically generate image by assigning .imgSrc to img element's .src in dom
 }
 
-// basically the function for clicking on answers. 
+// basically the function for clicking on answers.
 function pathHandler(event) {
   // first clears the screen by element.remove() on the displayed html elements
   // this can be shorted with a loop
@@ -78,14 +78,16 @@ function pathHandler(event) {
   document.getElementById('domQuestionText').remove();
   document.getElementById('domAnswerOneText').remove();
   document.getElementById('domAnswerTwoText').remove();
-  // runs loadQuestion() with the answers path assigned as .path 
+  // runs loadQuestion() with the answers path assigned as .path
   // again, this won't work unless .path is assigned in loadQuestion()
-  loadQuestion(event.target.path); 
+  loadQuestion(event.target.path);
 }
 
 // starts game by loading question from local storage or first question
-if (localStorage.getItem('currentPosition') === undefined || localStorage.getItem('currentPosition') === null) {
+var position = JSON.parse(localStorage.getItem('currentPosition'));
+
+if (position === undefined || position === null) {
   loadQuestion('devilsnare');
 } else {
-  loadQuestion(localStorage.getItem('currentPosition'));
+  loadQuestion(position);
 }
