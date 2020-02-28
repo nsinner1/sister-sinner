@@ -83,8 +83,8 @@ function pathHandler(event) {
   loadQuestion(event.target.path); 
 }
 
-// starts game by loading first question
-if (localStorage.getItem('currentPosition') === 'undefined' || 'null') {
+// starts game by loading question from local storage or first question
+if (localStorage.getItem('currentPosition') === undefined || localStorage.getItem('currentPosition') === null) {
   loadQuestion('devilsnare');
 } else {
   loadQuestion(localStorage.getItem('currentPosition'));
