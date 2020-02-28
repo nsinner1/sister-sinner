@@ -3,6 +3,8 @@
 
 
 var questionList = [];
+var deaths = 0;
+var youSuck = []; //death array for chart//
 
 function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, answerOnePath = null, answerTwoText = null, answerTwoPath = null, ) {
   this.questionId = questionId;
@@ -13,7 +15,10 @@ function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, ans
   this.answerTwoText = answerTwoText;
   this.answerTwoPath = answerTwoPath;
   questionList.push(this);
+
+
 }
+
 
 
 // add features: button to restart, back track, or nav to home about etc
@@ -59,6 +64,12 @@ function loadQuestion(id) {
 
   var questionObject = questionList[findQuestionIndex(id)];
   // this could be written in a for loop (probably with an array)
+  if (questionObject.questionId === 'death') {
+    deaths++;
+    youSuck.push(deaths);
+    localStorage.setItem('Deaths', deaths);
+
+  }
   renderToDom('questionSectionElement', 'p', questionObject.questionId, 'domQuestionId');
   renderToDom('questionSectionElement', 'p', questionObject.questionText, 'domQuestionText');
   renderToDom('questionSectionElement', 'p', questionObject.answerOneText, 'domAnswerOneText');
@@ -69,6 +80,7 @@ function loadQuestion(id) {
   document.getElementById('domAnswerTwoText').addEventListener('click', pathHandler); // adds event listener to answer element, to create a button
   document.getElementById('questionImage').src = questionObject.imgSrc; // dynamically generate image by assigning .imgSrc to img element's .src in dom
 }
+
 
 // basically the function for clicking on answers. 
 function pathHandler(event) {
@@ -84,11 +96,14 @@ function pathHandler(event) {
 }
 
 // starts game by loading first question
-if (localStorage.getItem('currentPosition') === 'undefined' || 'null') {
+if (localStorage.getItem('currentPosition')) {
   loadQuestion(localStorage.getItem('currentPosition'));
-} else {
+  
+} else if (localStorage.getItem('currentPosition') === 'undefined' || 'null') {
   loadQuestion('devilsnare');
-}
+  
+} 
+
 
 var playAgain = document.getElementById('playAgain');
 
@@ -97,4 +112,6 @@ function handleClick(e) {
   localStorage.clear();
   location.reload(loadQuestion('devilsnare'));
 }
-playAgain.addEventListener('click', handleClick)
+playAgain.addEventListener('click', handleClick);
+
+var getTable = document.getElementById('myTable');

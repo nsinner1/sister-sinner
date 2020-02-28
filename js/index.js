@@ -11,6 +11,5 @@ function handleSubmit(e) {
     var name = e.target.username.value;
     // userName = userName.concat(name);
     // console.log(userName);
-
     localStorage.setItem('localUserName', name);
 }
