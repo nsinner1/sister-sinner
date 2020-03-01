@@ -60,15 +60,16 @@ function findQuestionIndex(id) {
 
 // generates a question based on id string. could add functionality to display answers randomly
 function loadQuestion(id) {
-  localStorage.setItem('currentPosition', JSON.stringify(id));
-
+  // save current question to local storage. tied to current user
+  savedPlayers[0].currentPosition = id;
+  saveToLocalStorage(savedPlayers, 'fFP' + savedPlayers[0].username);
+  // current question object assigned to variable qustionObject
   var questionObject = questionList[findQuestionIndex(id)];
   // this could be written in a for loop (probably with an array)
   if (questionObject.questionId === 'death') {
     deaths++;
     youSuck.push(deaths);
     localStorage.setItem('Deaths', deaths);
-
   }
   renderToDom('questionSectionElement', 'p', questionObject.questionId, 'domQuestionId');
   renderToDom('questionSectionElement', 'p', questionObject.questionText, 'domQuestionText');
@@ -94,13 +95,40 @@ function pathHandler(event) {
   loadQuestion(event.target.path);
 }
 
-if (position === undefined || position === null) {
-  loadQuestion('devilsnare');
+// logic to load proper question on game.html loading
+var savedPlayers = []; // same as in index.js
+
+if (localStorage.getItem('currentPlayer') !== null) {
+  var loadedLocalData = getFromLocalStorage(`fFP${getFromLocalStorage('currentPlayer')}`);
+  new NewPlayer(loadedLocalData[0].username, loadedLocalData[0].currentPosition, loadedLocalData[0].deathCount);
+  loadQuestion(savedPlayers[0].currentPosition);
 } else {
-  loadQuestion(position);
+  loadQuestion('death'); // remove from final code, debug purposes only
 }
 
-// starts game by loading question from local storage or first question
-
-var position = JSON.parse(localStorage.getItem('currentPosition'));
+// High score goes here
 var getTable = document.getElementById('myTable');
+
+// same constructor function from index.js
+function NewPlayer(username, currentPosition = 'devilsnare', deathCount = 0) {
+  this.username = username;
+  this.currentPosition = currentPosition;
+  this.deathCount = deathCount;
+  // this.activeplayer = 1; //just make another key:value in memory that stores the active player, duh
+  savedPlayers.push(this);
+}
+
+// saves an array to local storage and names it
+function saveToLocalStorage(arr, keyname) {
+  // stringify data
+  var stringedData = JSON.stringify(arr);
+  // saves to local storage
+  localStorage.setItem(keyname, stringedData);
+}
+
+// returns parsed data saved in local storage
+function getFromLocalStorage(keyname) {
+  var stringedData = localStorage.getItem(keyname);
+  var parsedData = JSON.parse(stringedData);
+  return parsedData;
+}
