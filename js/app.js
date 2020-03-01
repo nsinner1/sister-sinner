@@ -55,14 +55,14 @@ function findQuestionIndex(id) {
       return i;
     }
   }
-  console.log('findQLIdIndex() was given a bad Question ID.');
+  console.log('findQLIdIndex() was given a bad Question ID.'); // debug, remove later
 }
 
 // generates a question based on id string. could add functionality to display answers randomly
 function loadQuestion(id) {
   // save current question to local storage. tied to current user
   savedPlayers[0].currentPosition = id;
-  saveToLocalStorage(savedPlayers, 'fFP' + savedPlayers[0].username);
+  saveToLocalStorage(savedPlayers, `player${savedPlayers[0].username}`);
   // current question object assigned to variable qustionObject
   var questionObject = questionList[findQuestionIndex(id)];
   // this could be written in a for loop (probably with an array)
@@ -99,7 +99,7 @@ function pathHandler(event) {
 var savedPlayers = []; // same as in index.js
 
 if (localStorage.getItem('currentPlayer') !== null) {
-  var loadedLocalData = getFromLocalStorage(`fFP${getFromLocalStorage('currentPlayer')}`);
+  var loadedLocalData = getFromLocalStorage(`player${getFromLocalStorage('currentPlayer')}`);
   new NewPlayer(loadedLocalData[0].username, loadedLocalData[0].currentPosition, loadedLocalData[0].deathCount);
   loadQuestion(savedPlayers[0].currentPosition);
 } else {
@@ -114,7 +114,6 @@ function NewPlayer(username, currentPosition = 'devilsnare', deathCount = 0) {
   this.username = username;
   this.currentPosition = currentPosition;
   this.deathCount = deathCount;
-  // this.activeplayer = 1; //just make another key:value in memory that stores the active player, duh
   savedPlayers.push(this);
 }
 

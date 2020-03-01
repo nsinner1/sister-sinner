@@ -1,13 +1,5 @@
 'use strict';
 
-//////////////////////////////////////////////////////////////////////
-//testing moving index.js to app.js
-//////////////////////////////////////////////////////////////////////
-
-
-// add a 'continue' and 'new game' button on homepage
-
-
 var savedPlayers = [];
 
 var userForm = document.getElementById('userForm');
@@ -16,18 +8,21 @@ userForm.addEventListener('keypress', handleSubmit => handleSubmit.key === 'Ente
 
 function handleSubmit(event) {
   event.preventDefault();
-  // check if new player or continuing player
-  new NewPlayer(event.target.enteredUsername.value); // create NewPlayer object which goes in savedPlayers array
-  saveToLocalStorage(savedPlayers, 'fFP' + event.target.enteredUsername.value); // save NewPlayer object to local storage with key 'fFP'+username
-  saveToLocalStorage(event.target.enteredUsername.value, 'currentPlayer'); // save current player in local storage to be referenced while using site
-  document.location = 'game.html'; // loads game page
+  if (getFromLocalStorage(`player${event.target.enteredUsername.value}`)) {
+    saveToLocalStorage(event.target.enteredUsername.value, 'currentPlayer'); // save current player in local storage to be referenced while using site
+    document.location = 'game.html'; // loads game page
+  } else {
+    new NewPlayer(event.target.enteredUsername.value); // create NewPlayer object which goes in savedPlayers array
+    saveToLocalStorage(savedPlayers, `player${event.target.enteredUsername.value}`); // save NewPlayer object to local storage with key 'player'+username
+    saveToLocalStorage(event.target.enteredUsername.value, 'currentPlayer'); // save current player in local storage to be referenced while using site
+    document.location = 'game.html'; // loads game page
+  }
 }
 
 function NewPlayer(username) {
   this.username = username;
   this.currentPosition = 'devilsnare';
   this.deathCount = 0;
-  // this.activeplayer = 1; //just make another key:value in memory that stores the active player, duh
   savedPlayers.push(this);
 }
 
