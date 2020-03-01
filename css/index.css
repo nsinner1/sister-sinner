@@ -1,27 +1,20 @@
-#home{
-  position: relative;
-  margin-left: 15%;
-  margin-top: 6%;
-}
 
-#label1{
-  margin-left: 38%;
-  font-size: 20px;
-  color: black;
-  cursor: url(../images/transparent_wand_32x32.png), auto;
 
-}
-
-#forbidden{
-  position: relative;
-  color: black;
-  margin-left: 30%;
-  margin-top: 3%;
+#userForm{
+  margin-top: 2%;
   font-size: 40px;
+  color: white;
+  font-weight: bolder;
+  font-family: 'harryfont';
+  cursor: url(../images/transparent_wand_32x32.png), auto;
+  margin-left: 30%;
+  margin-right: 30%;
 }
+
 
 #body1{
       cursor: url(../images/transparent_wand_32x32.png), auto;
+      background-image: url(../images/forbid.jpg);
 }
 
 #username{
@@ -35,5 +28,56 @@
 
 #audio{
     cursor: url(../images/transparent_wand_32x32.png), auto;
-
 }
+
+
+@font-face {
+  font-family: 'harryfont';
+  src: url('../fonts/HARRYP__.TTF');
+}
+
+.w3-center{
+  font-family: harryfont;
+  font-size: 40px;
+  color: white;
+}
+
+.mySlides {display:none;}
+
+#instruct1{
+font-family: harryfont;
+}
+
+#gameLink{
+  color: white;
+  font-family: 'harryfont';
+  font-size: 35px;
+  margin-right: 80%;
+  text-decoration: none;
+}
+#gameLink:hover{
+  color: yellow;
+}
+
+#aboutUsLink{
+  color: white;
+  font-family: 'harryfont';
+  font-size: 35px;
+  text-decoration: none;
+}
+
+#aboutUsLink:hover{
+  color: yellow;
+}
+
+#buttonForm{
+padding: 1%;
+}
+
+#buttonForm:hover{
+  color: yellow;
+}
+
+
+
+
