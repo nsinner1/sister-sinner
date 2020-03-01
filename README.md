@@ -32,3 +32,6 @@ added photos to about us page
 
 Linking to another .html page using a JS function, instead of <a> in html
 https://stackoverflow.com/questions/50925607/link-to-a-html-page-inside-a-javascript-function
+
+event listener for enter key
+https://stackoverflow.com/questions/14542062/eventlistener-enter-key/50993410

@@ -1,19 +1,28 @@
 'use strict';
 
+var currentPlayer = [];
+
 var userForm = document.getElementById('userForm');
 userForm.addEventListener('submit', handleSubmit);
+userForm.addEventListener('keypress', handleSubmit => handleSubmit.key === 'Enter');
 
 function handleSubmit(event) {
   event.preventDefault();
-  var name = event.target.enteredUsername.value;
-
-  //saving username to local storage
-  localStorage.setItem('localUserName', JSON.stringify(name));
-
-  // retrieving from local storage
-  // var test = JSON.parse(localStorage.getItem('localUserName'));
-  // console.log(test);
-
-  // link to gamepage
-  document.location = 'game.html';
+  if ( JSON.parse(localStorage.getItem('currentPlayer')) ) 
+  
+  
+  
+  new NewPlayer(event.target.enteredUsername.value);
+  localStorage.setItem('currentPlayer', JSON.stringify(currentPlayer));
+  // document.location = 'game.html';
 }
+
+function NewPlayer(username) {
+  this.username = username;
+  this.currentPosition = 'devilsnare';
+  this.deathCount = 0;
+  currentPlayer.push(this);
+}
+
+
+// add a 'continue' and 'new game' button on homepage
