@@ -91,13 +91,13 @@ padding: 1%;
 
 #buttonForm:hover{
   color: yellow;
-  box-shadow:20px 20px 50px 20px whitesmoke ;  
+  background-color: navy;
+  box-shadow:0px 0px 50px 10px whitesmoke ;  
   cursor: url(../images/transparent_wand_32x32.png), auto;
-
 }
 
 .w3-button:hover{
-  box-shadow:20px 20px 50px 20px whitesmoke ;  
+  box-shadow:0px 0px 50px 10px  whitesmoke ;  
   cursor: url(../images/transparent_wand_32x32.png), auto;
 
 }
