@@ -7,7 +7,7 @@
   font-weight: bolder;
   font-family: 'harryfont';
   cursor: url(../images/transparent_wand_32x32.png), auto;
-  margin-left: 30%;
+  margin-left: 37%;
   margin-right: 30%;
 }
 
@@ -23,11 +23,15 @@
 
 #butt{
   cursor: url(../images/transparent_wand_32x32.png), auto;
-
 }
 
 #audio{
     cursor: url(../images/transparent_wand_32x32.png), auto;
+}
+
+#enteredUsername{
+  cursor: url(../images/transparent_wand_32x32.png), auto;
+
 }
 
 
@@ -37,16 +41,23 @@
 }
 
 .w3-center{
-  font-family: harryfont;
-  font-size: 40px;
+  font-family: 'harryfont';
+  font-size: 60px;
   color: white;
+}
+
+.w3-center:hover{
+  color: yellow;
 }
 
 .mySlides {display:none;}
 
-#instruct1{
-font-family: harryfont;
+.w3-display-middle{
+font-family: 'harryfont';
+
 }
+
+
 
 #gameLink{
   color: white;
@@ -54,6 +65,8 @@ font-family: harryfont;
   font-size: 35px;
   margin-right: 80%;
   text-decoration: none;
+  cursor: url(../images/transparent_wand_32x32.png), auto;
+
 }
 #gameLink:hover{
   color: yellow;
@@ -64,6 +77,8 @@ font-family: harryfont;
   font-family: 'harryfont';
   font-size: 35px;
   text-decoration: none;
+  cursor: url(../images/transparent_wand_32x32.png), auto;
+
 }
 
 #aboutUsLink:hover{
@@ -76,6 +91,15 @@ padding: 1%;
 
 #buttonForm:hover{
   color: yellow;
+  box-shadow:20px 20px 50px 20px whitesmoke ;  
+  cursor: url(../images/transparent_wand_32x32.png), auto;
+
+}
+
+.w3-button:hover{
+  box-shadow:20px 20px 50px 20px whitesmoke ;  
+  cursor: url(../images/transparent_wand_32x32.png), auto;
+
 }
 
 
