@@ -1,6 +1,8 @@
 'use strict';
 
 var questionList = [];
+
+// comment out
 var deaths = 0;
 var youSuck = []; //death array for chart//
 
@@ -59,9 +61,14 @@ function loadQuestion(id) {
   var questionObject = questionList[findQuestionIndex(id)]; // current question object assigned to variable qustionObject
   // logic to count deaths
   if (questionObject.questionId === 'death') {
-    deaths++;
-    youSuck.push(deaths);
-    localStorage.setItem('Deaths', deaths);
+    savedPlayer[0].deathCount++; // updates savedPlayer array
+    saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // saves savedPlayer array to local storage with updated death count
+  }
+  // logic for success state
+  if (questionObject.questionId === 'success') {
+    savedPlayer[0].deathCount = 0; // updates savedPlayer array, resets death count to 0
+    saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // saves savedPlayer array to local storage with updated death count
+    alert(`Good job ${savedPlayer[0].username}, your score is ${savedPlayer[0].deathCount} deaths!`); // this would be replaced with a high score function
   }
   // This could be written in a for loop (probably with an array)
   renderToDom('questionSectionElement', 'p', questionObject.questionId, 'domQuestionId');
