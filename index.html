@@ -5,31 +5,80 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link type="text/css" rel="stylesheet" href="css/reset.css">
   <link type="text/css" rel="stylesheet" href="css/index.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Julius+Sans+One|Oswald" rel="stylesheet">
 </head>
 
 <header>
-  <p id="forbidden">FORBIDDEN FOREST GAME!</p>
 </header>
 
 <body id="body1">
   <main>
-    <a href="game.html">Game Page</a>
-    <a href="aboutus.html">About Us Page</a>
+    <a id="gameLink" href="game.html">Game Page</a>
+    <a id="aboutUsLink" href="aboutus.html">About Us Page</a>
   </main>
 
-  <img id="home" src="https://via.placeholder.com/1000x410/000000/000000">
+  
+  <h2 class="w3-center">ESCAPE THE FORBIDDEN FOREST</h2>
 
+
+  
+  <div class="w3-content w3-display-container">
+  
+  <div class="w3-display-container mySlides">
+    <img src="images/hogwarts.gif" style="width:100%">
+    <div  class="w3-display-middle w3-xlarge w3-container w3-padding-16 w3-black w3-center">
+      WELCOME TO THE FORBIDDEN FOREST GAME.<br>
+      <br>
+      CLICK THE NEXT ARROW TO READ THE INSTRUCTIONS.
+    </div>
+  </div>
+  
+  <div class="w3-display-container mySlides">
+    <img src="images/myrtles-bathroom_6861283143_o.gif" style="width:100%">
+    <div  class="w3-display-middle w3-xlarge w3-container w3-padding-40 w3-black w3-center">
+      TEST YOUR HARRY POTTER KNOWLEDGE AND SEE IF YOU CAN ESCAPE THE FORBIDDEN FOREST.
+    </div>
+  </div>
+  
+  <div class="w3-display-container mySlides">
+    <img src="images/hall.gif" style="width:100%">
+    <div  class="w3-display-middle w3-xlarge w3-container w3-padding-16 w3-black w3-center">
+      WHEN GIVEN A PROMPT, USE YOUR KNOWLEDGE TO JOURNEY THROUGH THE FORBIDDEN FOREST.
+    </div>
+  </div>
+  
+  <div class="w3-display-container mySlides">
+    <img src="images/multiharry.gif" style="width:100%">
+    <div class="w3-display-middle w3-xlarge w3-container w3-padding-40 w3-black w3-center">
+      IF YOU GET A QUESTION INCORRECT, YOU DIE! <br>
+      <br>
+      LUCKILY, WE CREATED LOCAL STORAGE AND YOU CAN TRY AGAIN.
+    </div>
+  </div>
+  <div class="w3-display-container mySlides">
+    <img src="images/scared.gif" style="width:100%">
+    <div  class="w3-display-middle w3-xlarge w3-container w3-padding-16 w3-black w3-center">
+      ENTER A WIZARD-NAME AND CLICK SUBMIT! <br>
+    </div>
+  </div>
+  <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+  </div>
+
+  <div>
   <form id="userForm">
     <fieldset>
-      <label id="label1">Enter a Wizard-Name</label>
       <input id="enteredUsername" type="text" placeholder="Enter a Wizard-Name">
       <button id="buttonForm" value="submit">Submit</button>
     </fieldset>
   </form>
+</div>
 
-  <audio controls>
+  <audio autoplay controls  style="display: none;">
     <source id="audio" src="harrysong.mp3" type="audio/mpeg">
   </audio>
 
