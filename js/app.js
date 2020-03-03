@@ -1,8 +1,8 @@
 'use strict';
 
-
-
 var questionList = [];
+
+// comment out
 var deaths = 0;
 var youSuck = []; //death array for chart//
 
@@ -15,15 +15,11 @@ function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, ans
   this.answerTwoText = answerTwoText;
   this.answerTwoPath = answerTwoPath;
   questionList.push(this);
-
-
 }
-
-
 
 // add features: button to restart, back track, or nav to home about etc
 
-// new questions go here. includes death state and success state. could include a death text feature for unique death states for each question
+// New questions go here. includes death state and success state. could include a death text feature for unique death states for each question
 new NewQuestion('death', 'You have died. Your ghost haunts the Forbidden Forest warning wary travelers of the dangers that reside therein.', '../images/particle gif.gif', 'Play again?', 'devilsnare');
 new NewQuestion('success', 'Congratulations! You have escaped the Forbidden Forest with your life.', '../images/congrats.gif', 'Play again?', 'devilsnare');
 new NewQuestion('devilsnare', 'You walk through the dark and damp Forbidden Forest when vines start to wrap around your ankles causing you to stumble. As you fall, the snake-like tendrils wrap even tighter and move up your legs. Do you:', null, 'Struggle and pull your legs free.', 'death', 'Point your wand at the vines and yell, "Incendio!!"', 'fluffy');
@@ -39,7 +35,7 @@ new NewQuestion('fork', 'After greeting the centaur, you continue on your path. 
 new NewQuestion('house', 'You walk along the path and the sorting hat appears, "Which house would like me to sort you into?"', null, 'Hufflepuff and Ravenclaw', 'success', 'Gryffindor and Slytherin', 'success');
 
 
-// general purpose function to write anything to the DOM and give it an id
+// General purpose function to write anything to the DOM and give it an id
 function renderToDom(parentEl, childEl, textToWrite, domId) {
   var parentLocation = document.getElementById(parentEl);
   var newEl = document.createElement(childEl);
@@ -48,28 +44,27 @@ function renderToDom(parentEl, childEl, textToWrite, domId) {
   parentLocation.appendChild(newEl);
 }
 
-// this is written so that questions can be referenced by id, and adding questions or switching the order of questions in questionList array doesn't break anything
+// This is written so that questions can be referenced by id, and adding questions or switching the order of questions in questionList array doesn't break anything
 function findQuestionIndex(id) {
   for (var i = 0; i < questionList.length; i++) {
     if (questionList[i].questionId === id) {
       return i;
     }
   }
-  console.log('findQLIdIndex() was given a bad Question ID.');
+  console.log('findQLIdIndex() was given a bad Question ID.'); // debug, remove later
 }
 
-// generates a question based on id string. could add functionality to display answers randomly
+// Generates a question based on id string and manipulates local storage. could add functionality to display answers randomly
 function loadQuestion(id) {
-  localStorage.setItem('currentPosition', JSON.stringify(id));
-
-  var questionObject = questionList[findQuestionIndex(id)];
-  // this could be written in a for loop (probably with an array)
+  savedPlayer[0].currentPosition = id; // updates savedPlayer array
+  saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // save current question (from savedPlayer array) to local storage. tied to currentPlayer
+  var questionObject = questionList[findQuestionIndex(id)]; // current question object assigned to variable qustionObject
+  // logic to count deaths
   if (questionObject.questionId === 'death') {
-    deaths++;
-    youSuck.push(deaths);
-    localStorage.setItem('Deaths', deaths);
-
+    savedPlayer[0].deathCount++; // updates savedPlayer array
+    saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // saves savedPlayer array to local storage with updated death count
   }
+  // This could be written in a for loop (probably with an array)
   renderToDom('questionSectionElement', 'p', questionObject.questionId, 'domQuestionId');
   renderToDom('questionSectionElement', 'p', questionObject.questionText, 'domQuestionText');
   renderToDom('questionSectionElement', 'p', questionObject.answerOneText, 'domAnswerOneText');
@@ -79,9 +74,15 @@ function loadQuestion(id) {
   document.getElementById('domAnswerTwoText').path = questionObject.answerTwoPath; // assigns next path (represented by .answerTwoPath string) to dom answer element to be called in pathHandler()
   document.getElementById('domAnswerTwoText').addEventListener('click', pathHandler); // adds event listener to answer element, to create a button
   document.getElementById('questionImage').src = questionObject.imgSrc; // dynamically generate image by assigning .imgSrc to img element's .src in dom
+  // logic for success state
+  if (questionObject.questionId === 'success') {
+    console.log(`Good job ${savedPlayer[0].username}, your score is ${savedPlayer[0].deathCount} deaths!`); // this would be replaced with a high score function
+    savedPlayer[0].deathCount = 0; // updates savedPlayer array, resets death count to 0
+    saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // saves savedPlayer array to local storage with updated death count
+  }
 }
 
-// basically the function for clicking on answers.
+// Basically the function for clicking on answers.
 function pathHandler(event) {
   // first clears the screen by element.remove() on the displayed html elements
   // this can be shorted with a loop
@@ -94,13 +95,42 @@ function pathHandler(event) {
   loadQuestion(event.target.path);
 }
 
-if (position === undefined || position === null) {
-  loadQuestion('devilsnare');
+// High score goes here
+var getTable = document.getElementById('myTable');
+
+
+//////////////////////////////
+//*****LOCAL STORAGE CODE*****
+//////////////////////////////
+
+var savedPlayer = []; // same as in index.js
+
+// Logic to load proper question on game.html loading, based on currentPlayer in local storage
+if (localStorage.getItem('currentPlayer') !== null) {
+  var loadedLocalData = getFromLocalStorage(`player${getFromLocalStorage('currentPlayer')}`);
+  new NewPlayer(loadedLocalData[0].username, loadedLocalData[0].currentPosition, loadedLocalData[0].deathCount);
+  loadQuestion(savedPlayer[0].currentPosition);
 } else {
-  loadQuestion(position);
+  loadQuestion('death'); // remove if/else from final code, debug purposes only
 }
 
-// starts game by loading question from local storage or first question
+// Same constructor function from index.js
+function NewPlayer(username, currentPosition = 'devilsnare', deathCount = 0) {
+  this.username = username;
+  this.currentPosition = currentPosition;
+  this.deathCount = deathCount;
+  savedPlayer.push(this);
+}
 
-var position = JSON.parse(localStorage.getItem('currentPosition'));
-var getTable = document.getElementById('myTable');
+// Saves an array to local storage and names it
+function saveToLocalStorage(arr, keyname) {
+  var stringedData = JSON.stringify(arr); // stringify data
+  localStorage.setItem(keyname, stringedData); // saves to local storage
+}
+
+// Returns parsed data saved in local storage
+function getFromLocalStorage(keyname) {
+  var stringedData = localStorage.getItem(keyname);
+  var parsedData = JSON.parse(stringedData);
+  return parsedData;
+}
