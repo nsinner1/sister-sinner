@@ -64,12 +64,6 @@ function loadQuestion(id) {
     savedPlayer[0].deathCount++; // updates savedPlayer array
     saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // saves savedPlayer array to local storage with updated death count
   }
-  // logic for success state
-  if (questionObject.questionId === 'success') {
-    savedPlayer[0].deathCount = 0; // updates savedPlayer array, resets death count to 0
-    saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // saves savedPlayer array to local storage with updated death count
-    alert(`Good job ${savedPlayer[0].username}, your score is ${savedPlayer[0].deathCount} deaths!`); // this would be replaced with a high score function
-  }
   // This could be written in a for loop (probably with an array)
   renderToDom('questionSectionElement', 'p', questionObject.questionId, 'domQuestionId');
   renderToDom('questionSectionElement', 'p', questionObject.questionText, 'domQuestionText');
@@ -80,6 +74,12 @@ function loadQuestion(id) {
   document.getElementById('domAnswerTwoText').path = questionObject.answerTwoPath; // assigns next path (represented by .answerTwoPath string) to dom answer element to be called in pathHandler()
   document.getElementById('domAnswerTwoText').addEventListener('click', pathHandler); // adds event listener to answer element, to create a button
   document.getElementById('questionImage').src = questionObject.imgSrc; // dynamically generate image by assigning .imgSrc to img element's .src in dom
+  // logic for success state
+  if (questionObject.questionId === 'success') {
+    console.log(`Good job ${savedPlayer[0].username}, your score is ${savedPlayer[0].deathCount} deaths!`); // this would be replaced with a high score function
+    savedPlayer[0].deathCount = 0; // updates savedPlayer array, resets death count to 0
+    saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // saves savedPlayer array to local storage with updated death count
+  }
 }
 
 // Basically the function for clicking on answers.
