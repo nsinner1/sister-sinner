@@ -44,6 +44,8 @@
   font-family: 'harryfont';
   font-size: 60px;
   color: white;
+  cursor: url(../images/transparent_wand_32x32.png), auto;
+  margin: 15px 0px;
 }
 
 .w3-center:hover{
@@ -63,11 +65,11 @@ font-family: 'harryfont';
   color: white;
   font-family: 'harryfont';
   font-size: 35px;
-  margin-right: 80%;
+  margin-right: 85%;  /* we really need to change this to a float lol #jank*/
   text-decoration: none;
   cursor: url(../images/transparent_wand_32x32.png), auto;
-
 }
+
 #gameLink:hover{
   color: yellow;
 }
@@ -78,7 +80,6 @@ font-family: 'harryfont';
   font-size: 35px;
   text-decoration: none;
   cursor: url(../images/transparent_wand_32x32.png), auto;
-
 }
 
 #aboutUsLink:hover{
@@ -91,17 +92,34 @@ padding: 1%;
 
 #buttonForm:hover{
   color: yellow;
-  box-shadow:20px 20px 50px 20px whitesmoke ;  
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: orange;
+  box-shadow:0px 0px 50px 10px whitesmoke;  
   cursor: url(../images/transparent_wand_32x32.png), auto;
-
 }
 
 .w3-button:hover{
-  box-shadow:20px 20px 50px 20px whitesmoke ;  
+  box-shadow:0px 0px 50px 10px  whitesmoke ;  
   cursor: url(../images/transparent_wand_32x32.png), auto;
-
 }
 
 
 
 
+
+/* Adam's work */
+.container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+img {
+  height: 408px;
+}
+
+main {
+  margin: 15px;
+}

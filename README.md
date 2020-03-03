@@ -57,3 +57,6 @@ https://stackoverflow.com/questions/14542062/eventlistener-enter-key/50993410
 
 Harry P font
 https://www.dafont.com/harry-p.font
+
+CSS text outline
+https://css-tricks.com/adding-stroke-to-web-text/
