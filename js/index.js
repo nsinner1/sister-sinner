@@ -1,21 +1,47 @@
 'use strict';
 
+var savedPlayers = [];
+
 var userForm = document.getElementById('userForm');
 userForm.addEventListener('submit', handleSubmit);
+userForm.addEventListener('keypress', handleSubmit => handleSubmit.key === 'Enter');
 
+// When a player enters a username: if new name it saves player to local storage, sets them as current player, and starts new game.
+// If name is already in local storage, then loads player data, sets them as current user, and continues game.
 function handleSubmit(event) {
   event.preventDefault();
-  var name = event.target.enteredUsername.value;
+  // continue game
+  if (getFromLocalStorage(`player${event.target.enteredUsername.value}`)) {
+    saveToLocalStorage(event.target.enteredUsername.value, 'currentPlayer'); // set current player
+    document.location = 'game.html'; // loads game page
+  // new game
+  } else {
+    new NewPlayer(event.target.enteredUsername.value); // create NewPlayer object which goes in savedPlayers array. The only value passed in is the username
+    saveToLocalStorage(savedPlayers, `player${event.target.enteredUsername.value}`); // save NewPlayer object to local storage with key = 'player'+username
+    saveToLocalStorage(event.target.enteredUsername.value, 'currentPlayer'); // set current player
+    document.location = 'game.html'; // loads game page
+  }
+}
 
-  //saving username to local storage
-  localStorage.setItem('localUserName', JSON.stringify(name));
+// Constructor for NewPlayer objects. same as in app.js
+function NewPlayer(username, currentPosition = 'devilsnare', deathCount = 0) {
+  this.username = username;
+  this.currentPosition = currentPosition;
+  this.deathCount = deathCount;
+  savedPlayers.push(this);
+}
 
-  // retrieving from local storage
-  // var test = JSON.parse(localStorage.getItem('localUserName'));
-  // console.log(test);
+// Saves an array to local storage and names it
+function saveToLocalStorage(arr, keyname) {
+  var stringedData = JSON.stringify(arr); // stringify data
+  localStorage.setItem(keyname, stringedData); // saves to local storage
+}
 
-  // link to gamepage
-  document.location = 'game.html';
+// Returns parsed data saved in local storage
+function getFromLocalStorage(keyname) {
+  var stringedData = localStorage.getItem(keyname);
+  var parsedData = JSON.parse(stringedData);
+  return parsedData;
 }
 
 var slideIndex = 1;
