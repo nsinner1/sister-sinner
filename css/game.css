@@ -33,9 +33,9 @@ body {
 }
 
 #questionSectionElement {
-  background-color: #ffffff;
+  background-color: rgb(255, 255, 255, .8);
   margin: 100px;
-  opacity: 0.8;
+  /* opacity: 0.8; */
   font-size: 45px;
   text-align: center;
   padding-bottom: 50px;

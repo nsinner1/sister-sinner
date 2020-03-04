@@ -61,11 +61,12 @@ function loadQuestion(id) {
   }
   // This could be written in a for loop (probably with an array)
   renderToDom('questionSectionElement', 'p', questionObject.questionId, 'domQuestionId');
-  var x = document.getElementById('domQuestionId');
-  var y = document.createElement('img');
-  y.src = questionObject.imgSrc;
-  y.alt = '';
-  x.appendChild(y);
+  var parentEl = document.getElementById('domQuestionId');
+  var imgEl = document.createElement('img');
+  imgEl.src = questionObject.imgSrc;
+  imgEl.alt = '';
+  imgEl.setAttribute('id', 'questionImage');
+  parentEl.appendChild(imgEl);
   renderToDom('questionSectionElement', 'p', questionObject.questionText, 'domQuestionText');
   renderToDom('questionSectionElement', 'p', questionObject.answerOneText, 'domAnswerOneText');
   renderToDom('questionSectionElement', 'p', questionObject.answerTwoText, 'domAnswerTwoText');
@@ -93,6 +94,9 @@ function pathHandler(event) {
   document.getElementById('domQuestionText').remove();
   document.getElementById('domAnswerOneText').remove();
   document.getElementById('domAnswerTwoText').remove();
+  if (document.getElementById('questionImage') !== null){
+    document.getElementById('questionImage').remove();
+  }
   if (document.getElementById('highScore') !== null){
     document.getElementById('highScore').remove();
   }
