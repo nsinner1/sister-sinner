@@ -35,24 +35,13 @@ body {
 #questionSectionElement {
   background-color: #ffffff;
   margin: 100px;
-  opacity: 0.5;
+  opacity: 0.8;
   font-size: 45px;
   text-align: center;
   padding-bottom: 50px;
   font-family: 'Marck Script';
   font-weight: bolder;
 }
-
-/* #body2{
-  margin-top: 2%;
-  font-size: 40px;
-  color: white;
-  font-weight: bolder;
-  font-family: 'harryfont';
-  cursor: url(../images/transparent_wand_32x32.png), auto;
-  margin-left: 30%;
-  margin-right: 30%;
-} */
 
 @font-face {
   font-family: 'harryfont';
@@ -87,12 +76,11 @@ body {
   font-weight: bold;
   font-size: 50px;
   text-transform: capitalize;
-  margin-top: 100px;
-  margin-bottom: 300px;
+  padding: 50px;
 }
 
 /* if empty answer no border */
-#body2 * :empty {
+#domAnswerOneText:empty, #domAnswerTwoText:empty  {
   display: none;
 }
 
@@ -100,7 +88,8 @@ body {
 img {
   display: block;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 20px;
+  opacity: 1.0;
 }
 
 #myTable{

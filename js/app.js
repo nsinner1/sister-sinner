@@ -61,6 +61,11 @@ function loadQuestion(id) {
   }
   // This could be written in a for loop (probably with an array)
   renderToDom('questionSectionElement', 'p', questionObject.questionId, 'domQuestionId');
+  var x = document.getElementById('domQuestionId');
+  var y = document.createElement('img');
+  y.src = questionObject.imgSrc;
+  y.alt = '';
+  x.appendChild(y);
   renderToDom('questionSectionElement', 'p', questionObject.questionText, 'domQuestionText');
   renderToDom('questionSectionElement', 'p', questionObject.answerOneText, 'domAnswerOneText');
   renderToDom('questionSectionElement', 'p', questionObject.answerTwoText, 'domAnswerTwoText');
@@ -68,7 +73,6 @@ function loadQuestion(id) {
   document.getElementById('domAnswerOneText').addEventListener('click', pathHandler); // adds event listener to answer element, to create a button
   document.getElementById('domAnswerTwoText').path = questionObject.answerTwoPath; // assigns next path (represented by .answerTwoPath string) to dom answer element to be called in pathHandler()
   document.getElementById('domAnswerTwoText').addEventListener('click', pathHandler); // adds event listener to answer element, to create a button
-  document.getElementById('questionImage').src = questionObject.imgSrc; // dynamically generate image by assigning .imgSrc to img element's .src in dom
   // logic for success state
   if (questionObject.questionId === 'success') {
     var getTable = document.getElementById('myTable');
