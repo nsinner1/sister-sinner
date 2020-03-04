@@ -2,10 +2,6 @@
 
 var questionList = [];
 
-// comment out
-var deaths = 0;
-var youSuck = []; //death array for chart//
-
 function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, answerOnePath = null, answerTwoText = null, answerTwoPath = null) {
   this.questionId = questionId;
   this.questionText = questionText;
@@ -54,6 +50,13 @@ function findQuestionIndex(id) {
   console.log('findQLIdIndex() was given a bad Question ID.'); // debug, remove later
 }
 
+
+
+
+
+
+
+
 // Generates a question based on id string and manipulates local storage. could add functionality to display answers randomly
 function loadQuestion(id) {
   savedPlayer[0].currentPosition = id; // updates savedPlayer array
@@ -76,10 +79,20 @@ function loadQuestion(id) {
   document.getElementById('questionImage').src = questionObject.imgSrc; // dynamically generate image by assigning .imgSrc to img element's .src in dom
   // logic for success state
   if (questionObject.questionId === 'success') {
-    console.log(`Good job ${savedPlayer[0].username}, your score is ${savedPlayer[0].deathCount} deaths!`); // this would be replaced with a high score function
+    var getTable = document.getElementById('myTable');
+    var th = document.createElement('thead');
+    th.setAttribute('id', 'highScore');
+    th.textContent = `Good job ${savedPlayer[0].username}, your score is ${savedPlayer[0].deathCount} death(s)!`;
+    getTable.appendChild(th);
+    // var td = document.createElement('td');
+    // td.textContent = savedPlayer[0].deathCount;
+    // th.appendChild(td);
+
+
     savedPlayer[0].deathCount = 0; // updates savedPlayer array, resets death count to 0
     saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // saves savedPlayer array to local storage with updated death count
   }
+
 }
 
 // Basically the function for clicking on answers.
@@ -90,13 +103,15 @@ function pathHandler(event) {
   document.getElementById('domQuestionText').remove();
   document.getElementById('domAnswerOneText').remove();
   document.getElementById('domAnswerTwoText').remove();
+  if (document.getElementById('highScore') !== null){
+    document.getElementById('highScore').remove();
+  }
   // runs loadQuestion() with the answers path assigned as .path
   // again, this won't work unless .path is assigned in loadQuestion()
   loadQuestion(event.target.path);
 }
 
 // High score goes here
-var getTable = document.getElementById('myTable');
 
 
 //////////////////////////////
@@ -120,6 +135,8 @@ function NewPlayer(username, currentPosition = 'devilsnare', deathCount = 0) {
   this.currentPosition = currentPosition;
   this.deathCount = deathCount;
   savedPlayer.push(this);
+
+
 }
 
 // Saves an array to local storage and names it
@@ -134,3 +151,7 @@ function getFromLocalStorage(keyname) {
   var parsedData = JSON.parse(stringedData);
   return parsedData;
 }
+
+
+
+
