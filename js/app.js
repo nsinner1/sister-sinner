@@ -31,6 +31,14 @@ new NewQuestion('fork', 'After greeting the centaur, you continue on your path. 
 new NewQuestion('house', 'You walk along the path and the sorting hat appears, "Which house would like me to sort you into?"', null, 'Hufflepuff and Ravenclaw', 'success', 'Gryffindor and Slytherin', 'success');
 
 
+
+
+
+
+
+
+
+
 // General purpose function to write anything to the DOM and give it an id
 function renderToDom(parentEl, childEl, textToWrite, domId) {
   var parentLocation = document.getElementById(parentEl);
@@ -49,10 +57,6 @@ function findQuestionIndex(id) {
   }
   console.log('findQLIdIndex() was given a bad Question ID.'); // debug, remove later
 }
-
-
-
-
 
 
 

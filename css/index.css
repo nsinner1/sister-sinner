@@ -1,7 +1,7 @@
 
 
 #userForm{
-  margin-top: 2%;
+  margin-top: 12.5%;
   font-size: 40px;
   color: white;
   font-weight: bolder;
@@ -103,11 +103,44 @@ padding: 1%;
   cursor: url(../images/transparent_wand_32x32.png), auto;
 }
 
+#harry{
+ width: 15%;
+  float: left;
+}
+
+#harry:hover{
+  transform: scale(1.5);
+}
+#hermoine{
+  max-width: 10%;
+  margin-top: 3%;
+  float: left;
+}
+
+#hermoine:hover{
+  transform: scale(1.5);
+}
+
+#ron{
+  max-width: 11%;
+  float: left;
+  margin-top: 3%;
+}
+
+#ron:hover{
+  transform: scale(1.5);
+
+}
+
+.avatars{
+  margin-left: 37%;
+}
 
 
+/* 
 
 
-/* Adam's work */
+Adam's work
 .container {
   position: fixed;
   width: 100%;
@@ -122,4 +155,4 @@ img {
 
 main {
   margin: 15px;
-}
+} */

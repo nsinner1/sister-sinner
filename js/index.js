@@ -6,6 +6,15 @@ var userForm = document.getElementById('userForm');
 userForm.addEventListener('submit', handleSubmit);
 userForm.addEventListener('keypress', handleSubmit => handleSubmit.key === 'Enter');
 
+var harryP = document.getElementById('harry');
+var hermoineG = document.getElementById('hermoine');
+var ronW = document.getElementById('ron');
+harryP.addEventListener('click', handleClick);
+hermoineG.addEventListener('click', handleClick);
+ronW.addEventListener('click', handleClick);
+
+
+
 // When a player enters a username: if new name it saves player to local storage, sets them as current player, and starts new game.
 // If name is already in local storage, then loads player data, sets them as current user, and continues game.
 function handleSubmit(event) {
@@ -14,7 +23,7 @@ function handleSubmit(event) {
   if (getFromLocalStorage(`player${event.target.enteredUsername.value}`)) {
     saveToLocalStorage(event.target.enteredUsername.value, 'currentPlayer'); // set current player
     document.location = 'game.html'; // loads game page
-  // new game
+    // new game
   } else {
     new NewPlayer(event.target.enteredUsername.value); // create NewPlayer object which goes in savedPlayers array. The only value passed in is the username
     saveToLocalStorage(savedPlayers, `player${event.target.enteredUsername.value}`); // save NewPlayer object to local storage with key = 'player'+username
@@ -44,7 +53,37 @@ function getFromLocalStorage(keyname) {
   return parsedData;
 }
 
-var slideIndex = 1;
+var harryArray = [];
+
+function SaveImages(src){
+  this.src = src;
+  harryArray.push(this);
+};
+
+new SaveImages('../images/harryavatar.png');
+new SaveImages('../images/hermoineavatar.png');
+new SaveImages('../images/ronavatar.png');
+
+
+
+function handleClick(e){
+  // var clickedPic = e.target.src;
+  var harry1 = harryArray[0].src;
+  var hermoine1 = harryArray[1].src;
+  var ron1 = harryArray[2].src;
+  
+  e.preventDefault();
+   
+  saveToLocalStorage('harry', harry1);
+  saveToLocalStorage('hermoine', hermoine1);
+  saveToLocalStorage('ron', ron1);
+
+
+}
+  
+
+  
+  var slideIndex = 1;
 showDivs(slideIndex);
 
 function plusDivs(n) {
@@ -57,7 +96,7 @@ function showDivs(n) {
   if (n > x.length) {slideIndex = 1}
   if (n < 1) {slideIndex = x.length}
   for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
+    x[i].style.display = "none";  
   }
   x[slideIndex-1].style.display = "block";  
 }
