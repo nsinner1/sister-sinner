@@ -13,8 +13,6 @@ function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, ans
   questionList.push(this);
 }
 
-// add features: button to restart, back track, or nav to home about etc
-
 // New questions go here. includes death state and success state. could include a death text feature for unique death states for each question
 new NewQuestion('death', 'You have died. Your ghost haunts the Forbidden Forest warning wary travelers of the dangers that reside therein.', '../images/particle gif.gif', 'Play again?', 'devilsnare');
 new NewQuestion('success', 'Congratulations! You have escaped the Forbidden Forest with your life.', '../images/congrats.gif', 'Play again?', 'devilsnare');
@@ -46,7 +44,6 @@ function findQuestionIndex(id) {
       return i;
     }
   }
-  console.log('findQLIdIndex() was given a bad Question ID.'); // debug, remove later
 }
 
 // Generates a question based on id string and manipulates local storage. could add functionality to display answers randomly
@@ -59,9 +56,9 @@ function loadQuestion(id) {
     savedPlayer[0].deathCount++; // updates savedPlayer array
     saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // saves savedPlayer array to local storage with updated death count
   }
-  // This could be written in a for loop (probably with an array)
   renderToDom('questionSectionElement', 'p', questionObject.questionId, 'domQuestionId');
   var parentEl = document.getElementById('domQuestionId');
+  // DOM manipulation for image
   var imgEl = document.createElement('img');
   imgEl.src = questionObject.imgSrc;
   imgEl.alt = '';
@@ -105,13 +102,7 @@ function pathHandler(event) {
   loadQuestion(event.target.path);
 }
 
-// High score goes here
-
-
-//////////////////////////////
-//*****LOCAL STORAGE CODE*****
-//////////////////////////////
-
+// Local storage logic:
 var savedPlayer = []; // same as in index.js
 
 // Logic to load proper question on game.html loading, based on currentPlayer in local storage
@@ -120,7 +111,7 @@ if (localStorage.getItem('currentPlayer') !== null) {
   new NewPlayer(loadedLocalData[0].username, loadedLocalData[0].currentPosition, loadedLocalData[0].deathCount);
   loadQuestion(savedPlayer[0].currentPosition);
 } else {
-  loadQuestion('death'); // remove if/else from final code, debug purposes only
+  document.location = 'index.html'; // if you click game page from home page without entering a name first it boots you back to home page. If current player local storage gets deleted and there is not current player on game page load, boots user back to home page. A user can still play with a blank name (enter with no name)
 }
 
 // Same constructor function from index.js
@@ -129,8 +120,6 @@ function NewPlayer(username, currentPosition = 'devilsnare', deathCount = 0) {
   this.currentPosition = currentPosition;
   this.deathCount = deathCount;
   savedPlayer.push(this);
-
-
 }
 
 // Saves an array to local storage and names it
@@ -150,7 +139,6 @@ function getFromLocalStorage(keyname) {
 document.getElementById('playAgain').addEventListener('click', resetGame);
 function resetGame(event) {
   event.preventDefault();
-  console.log('this works I guess');
   savedPlayer[0].deathCount = 0;
   saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`);
   document.getElementById('domQuestionId').remove();
@@ -162,4 +150,3 @@ function resetGame(event) {
   }
   loadQuestion('devilsnare');
 }
-
