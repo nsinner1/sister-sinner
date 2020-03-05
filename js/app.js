@@ -30,7 +30,6 @@ new NewQuestion('centaur', 'A centaur is walking towards you. Do you:', null, 'W
 new NewQuestion('fork', 'After greeting the centaur, you continue on your path. You come to a fork in the road.', null, 'Left path.', 'death', 'Right path.', 'house');
 new NewQuestion('house', 'You walk along the path and the sorting hat appears, "Which house would like me to sort you into?"', null, 'Hufflepuff and Ravenclaw', 'success', 'Gryffindor and Slytherin', 'success');
 
-
 // General purpose function to write anything to the DOM and give it an id
 function renderToDom(parentEl, childEl, textToWrite, domId) {
   var parentLocation = document.getElementById(parentEl);
@@ -50,13 +49,6 @@ function findQuestionIndex(id) {
   console.log('findQLIdIndex() was given a bad Question ID.'); // debug, remove later
 }
 
-
-
-
-
-
-
-
 // Generates a question based on id string and manipulates local storage. could add functionality to display answers randomly
 function loadQuestion(id) {
   savedPlayer[0].currentPosition = id; // updates savedPlayer array
@@ -69,6 +61,12 @@ function loadQuestion(id) {
   }
   // This could be written in a for loop (probably with an array)
   renderToDom('questionSectionElement', 'p', questionObject.questionId, 'domQuestionId');
+  var parentEl = document.getElementById('domQuestionId');
+  var imgEl = document.createElement('img');
+  imgEl.src = questionObject.imgSrc;
+  imgEl.alt = '';
+  imgEl.setAttribute('id', 'questionImage');
+  parentEl.appendChild(imgEl);
   renderToDom('questionSectionElement', 'p', questionObject.questionText, 'domQuestionText');
   renderToDom('questionSectionElement', 'p', questionObject.answerOneText, 'domAnswerOneText');
   renderToDom('questionSectionElement', 'p', questionObject.answerTwoText, 'domAnswerTwoText');
@@ -76,7 +74,6 @@ function loadQuestion(id) {
   document.getElementById('domAnswerOneText').addEventListener('click', pathHandler); // adds event listener to answer element, to create a button
   document.getElementById('domAnswerTwoText').path = questionObject.answerTwoPath; // assigns next path (represented by .answerTwoPath string) to dom answer element to be called in pathHandler()
   document.getElementById('domAnswerTwoText').addEventListener('click', pathHandler); // adds event listener to answer element, to create a button
-  document.getElementById('questionImage').src = questionObject.imgSrc; // dynamically generate image by assigning .imgSrc to img element's .src in dom
   // logic for success state
   if (questionObject.questionId === 'success') {
     var getTable = document.getElementById('myTable');
@@ -84,15 +81,9 @@ function loadQuestion(id) {
     th.setAttribute('id', 'highScore');
     th.textContent = `Good job ${savedPlayer[0].username}, your score is ${savedPlayer[0].deathCount} death(s)!`;
     getTable.appendChild(th);
-    // var td = document.createElement('td');
-    // td.textContent = savedPlayer[0].deathCount;
-    // th.appendChild(td);
-
-
     savedPlayer[0].deathCount = 0; // updates savedPlayer array, resets death count to 0
     saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // saves savedPlayer array to local storage with updated death count
   }
-
 }
 
 // Basically the function for clicking on answers.
@@ -103,6 +94,9 @@ function pathHandler(event) {
   document.getElementById('domQuestionText').remove();
   document.getElementById('domAnswerOneText').remove();
   document.getElementById('domAnswerTwoText').remove();
+  if (document.getElementById('questionImage') !== null){
+    document.getElementById('questionImage').remove();
+  }
   if (document.getElementById('highScore') !== null){
     document.getElementById('highScore').remove();
   }
@@ -152,6 +146,20 @@ function getFromLocalStorage(keyname) {
   return parsedData;
 }
 
-
-
+// Reset Button
+document.getElementById('playAgain').addEventListener('click', resetGame);
+function resetGame(event) {
+  event.preventDefault();
+  console.log('this works I guess');
+  savedPlayer[0].deathCount = 0;
+  saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`);
+  document.getElementById('domQuestionId').remove();
+  document.getElementById('domQuestionText').remove();
+  document.getElementById('domAnswerOneText').remove();
+  document.getElementById('domAnswerTwoText').remove();
+  if (document.getElementById('highScore') !== null){
+    document.getElementById('highScore').remove();
+  }
+  loadQuestion('devilsnare');
+}
 
