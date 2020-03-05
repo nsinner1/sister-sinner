@@ -7,7 +7,7 @@ body {
   color: white;
   font-family: 'harryfont';
   font-size: 50px;
-  margin-right: 90%;
+  margin-right: 85%;
   text-decoration: none;
 }
 #homeLink:hover{
@@ -38,9 +38,9 @@ body {
   /* opacity: 0.8; */
   font-size: 45px;
   text-align: center;
-  padding-bottom: 50px;
-  font-family: 'Marck Script';
-  font-weight: bolder;
+  padding-bottom: 30px;
+  /* font-family: 'harryfont'; */
+  font-family: 'Indie Flower', cursive;
 }
 
 @font-face {
@@ -48,36 +48,45 @@ body {
   src: url('../fonts/HARRYP__.TTF');
 }
 
-#instructions2{
+/* #instructions2{
   position: relative;
   margin-left: 15%;
   margin-top: 15%;
   border: 1px white solid;
-}
+} */
 
 /* Answer Section */
+#domQuestionText {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
 #domAnswerOneText, #domAnswerTwoText {
-  border: 1px black solid;
-  padding: 3px;
+  /* border: 1px black solid; */
+  padding: 15px;
   text-align: center;
-  width: 75%;
-  margin: auto;
-  margin-bottom: px;
+  /* width: 75%; */
+  margin-top: 10px;
+  font-size: 35px;
+  /* margin-bottom: 10px; */
   cursor: url(../images/transparent_wand_32x32.png), auto;
 
+}
+
+/* Question Title Section */
+#domQuestionId {
+  /* font-weight: bolder; */
+  font-size: 85px;
+  text-transform: capitalize;
+  margin-top: 100px;
+  margin-bottom: 60px;
+  font-family: 'harryfont';
 }
 
 #domAnswerOneText:hover, #domAnswerTwoText:hover {
   background-color: lightgray;
 }
 
-/* Question Title Section */
-#domQuestionId {
-  font-weight: bold;
-  font-size: 50px;
-  text-transform: capitalize;
-  padding: 50px;
-}
 
 /* if empty answer no border */
 #domAnswerOneText:empty, #domAnswerTwoText:empty  {
@@ -94,7 +103,14 @@ img {
 
 #myTable{
   color: white;
-  font-weight: bolder;
-  font-size: 50px;
-  margin-left:20%;
+  margin-top: 20px;
+  font-size: 80px;
+  font-family: 'harryfont';
+  align-self: center;
 }
+
+table.center {
+  margin-left:auto; 
+  margin-right:auto;
+}
+
