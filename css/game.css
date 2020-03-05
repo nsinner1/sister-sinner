@@ -1,31 +1,30 @@
-
 body { 
   background-image: url(../images/forbid.jpg); 
 }
 
-#homeLink{
+#homeLink {
   color: white;
   font-family: 'harryfont';
   font-size: 50px;
   margin-right: 85%;
   text-decoration: none;
 }
-#homeLink:hover{
+#homeLink:hover {
   color: yellow;
 }
 
-#aboutUsLink{
+#aboutUsLink {
   color: white;
   font-family: 'harryfont';
   font-size: 50px;
   text-decoration: none;
 }
 
-#aboutUsLink:hover{
+#aboutUsLink:hover {
   color: yellow;
 }
 
-#forbidden2{
+#forbidden2 {
   font-family: harryfont;
   font-size: 100px;
   color: white;
@@ -35,11 +34,9 @@ body {
 #questionSectionElement {
   background-color: rgb(255, 255, 255, .8);
   margin: 100px;
-  /* opacity: 0.8; */
   font-size: 45px;
   text-align: center;
   padding-bottom: 30px;
-  /* font-family: 'harryfont'; */
   font-family: 'Indie Flower', cursive;
 }
 
@@ -47,13 +44,6 @@ body {
   font-family: 'harryfont';
   src: url('../fonts/HARRYP__.TTF');
 }
-
-/* #instructions2{
-  position: relative;
-  margin-left: 15%;
-  margin-top: 15%;
-  border: 1px white solid;
-} */
 
 /* Answer Section */
 #domQuestionText {
@@ -75,7 +65,6 @@ body {
 
 /* Question Title Section */
 #domQuestionId {
-  /* font-weight: bolder; */
   font-size: 85px;
   text-transform: capitalize;
   margin-top: 100px;
@@ -86,7 +75,6 @@ body {
 #domAnswerOneText:hover, #domAnswerTwoText:hover {
   background-color: lightgray;
 }
-
 
 /* if empty answer no border */
 #domAnswerOneText:empty, #domAnswerTwoText:empty  {
@@ -101,7 +89,7 @@ img {
   opacity: 1.0;
 }
 
-#myTable{
+#myTable {
   color: white;
   margin-top: 20px;
   font-size: 80px;
@@ -113,4 +101,3 @@ table.center {
   margin-left:auto; 
   margin-right:auto;
 }
-

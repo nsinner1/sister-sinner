@@ -2,6 +2,7 @@
 
 var questionList = [];
 
+// Main question constructor
 function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, answerOnePath = null, answerTwoText = null, answerTwoPath = null) {
   this.questionId = questionId;
   this.questionText = questionText;
@@ -13,7 +14,7 @@ function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, ans
   questionList.push(this);
 }
 
-// New questions go here. includes death state and success state. could include a death text feature for unique death states for each question
+// All questions, and success and death state go here
 new NewQuestion('death', 'You have died. Your ghost haunts the Forbidden Forest warning wary travelers of the dangers that reside therein.', '../images/particle gif.gif', 'Play again?', 'devilsnare');
 new NewQuestion('success', 'Congratulations! You have escaped the Forbidden Forest with your life.', '../images/congrats.gif', 'Play again?', 'devilsnare');
 new NewQuestion('devilsnare', 'You walk through the dark and damp Forbidden Forest when vines start to wrap around your ankles causing you to stumble. As you fall, the snake-like tendrils wrap even tighter and move up your legs. Do you:', null, 'Struggle and pull your legs free.', 'death', 'Point your wand at the vines and yell, "Incendio!!"', 'fluffy');
@@ -46,7 +47,7 @@ function findQuestionIndex(id) {
   }
 }
 
-// Generates a question based on id string and manipulates local storage. could add functionality to display answers randomly
+// Generates a question based on id string and manipulates local storage
 function loadQuestion(id) {
   savedPlayer[0].currentPosition = id; // updates savedPlayer array
   saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // save current question (from savedPlayer array) to local storage. tied to currentPlayer
@@ -83,10 +84,9 @@ function loadQuestion(id) {
   }
 }
 
-// Basically the function for clicking on answers.
+// Basically the function for clicking on answers
 function pathHandler(event) {
   // first clears the screen by element.remove() on the displayed html elements
-  // this can be shorted with a loop
   document.getElementById('domQuestionId').remove();
   document.getElementById('domQuestionText').remove();
   document.getElementById('domAnswerOneText').remove();
@@ -98,7 +98,6 @@ function pathHandler(event) {
     document.getElementById('highScore').remove();
   }
   // runs loadQuestion() with the answers path assigned as .path
-  // again, this won't work unless .path is assigned in loadQuestion()
   loadQuestion(event.target.path);
 }
 
