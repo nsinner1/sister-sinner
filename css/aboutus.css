@@ -5,12 +5,11 @@
 
 /* Background color and margin all around for the whole page */
 body {
-    margin-top: 5px;
-    margin-left: 30px;
-    margin-right: 30px;
-    background-color: rgb(233, 226, 217);
+  margin-top: 5px;
+  margin-left: 30px;
+  margin-right: 30px;
+  background-color: rgb(233, 226, 217);
 }
-
 
 /* NAV bar on the top */
 div.scrollmenu {
@@ -38,15 +37,15 @@ div.scrollmenu a:hover {
 
 /* Images and four columns */
 .aboutUsColumns {
-    -webkit-column-count: 4;
-    -moz-column-count: 4;
-    column-count: 4;
-    -webkit-column-gap: 11px;
-    -moz-column-gap: 11px;
-    column-gap: 11px;
-    -webkit-column-rule: 1px solid rgba(28,110,164,0.5);
-    -moz-column-rule: 1px solid rgba(28,110,164,0.5);
-    column-rule: 1px solid rgba(28,110,164,0.5);
+  -webkit-column-count: 4;
+  -moz-column-count: 4;
+  column-count: 4;
+  -webkit-column-gap: 11px;
+  -moz-column-gap: 11px;
+  column-gap: 11px;
+  -webkit-column-rule: 1px solid rgba(28,110,164,0.5);
+  -moz-column-rule: 1px solid rgba(28,110,164,0.5);
+  column-rule: 1px solid rgba(28,110,164,0.5);
 }
 
 img {
@@ -66,22 +65,23 @@ hr {
 }
 
 /* Footer*/
-  footer div a.vertical-align {
-    position: relative;
-    top: 33%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+footer div a.vertical-align {
+  position: relative;
+  top: 33%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
+
 footer div.footer {
-    position: relative;
-    top: 50px;
-    right: 0px;
-    left: 0px;
-    width: 100%;
-    height: 80px;
-    background-color: #44494e;
-    color: white;
-    font-size: 20px;
-    text-align: center;
+  position: relative;
+  top: 50px;
+  right: 0px;
+  left: 0px;
+  width: 100%;
+  height: 80px;
+  background-color: #44494e;
+  color: white;
+  font-size: 20px;
+  text-align: center;
 }

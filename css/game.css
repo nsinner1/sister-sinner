@@ -52,15 +52,11 @@ body {
 }
 
 #domAnswerOneText, #domAnswerTwoText {
-  /* border: 1px black solid; */
   padding: 15px;
   text-align: center;
-  /* width: 75%; */
   margin-top: 10px;
   font-size: 35px;
-  /* margin-bottom: 10px; */
   cursor: url(../images/transparent_wand_32x32.png), auto;
-
 }
 
 /* Question Title Section */

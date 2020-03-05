@@ -1,6 +1,4 @@
-
-
-#userForm{
+#userForm {
   margin-top: 2%;
   font-size: 40px;
   color: white;
@@ -11,36 +9,34 @@
   margin-right: 30%;
 }
 
-
-#body1{
-      cursor: url(../images/transparent_wand_32x32.png), auto;
-      background-image: url(../images/forbid.jpg);
+#body1 {
+  cursor: url(../images/transparent_wand_32x32.png), auto;
+  background-image: url(../images/forbid.jpg);
 }
 
-#username{
+#username {
   cursor: url(../images/transparent_wand_32x32.png), auto;
 }
 
-#butt{
+#butt {
   cursor: url(../images/transparent_wand_32x32.png), auto;
 }
 
-#audio{
-    cursor: url(../images/transparent_wand_32x32.png), auto;
+#audio {
+  cursor: url(../images/transparent_wand_32x32.png), auto;
 }
 
-#enteredUsername{
+#enteredUsername {
   cursor: url(../images/transparent_wand_32x32.png), auto;
 
 }
-
 
 @font-face {
   font-family: 'harryfont';
   src: url('../fonts/HARRYP__.TTF');
 }
 
-.w3-center{
+.w3-center {
   font-family: 'harryfont';
   font-size: 60px;
   color: white;
@@ -48,33 +44,32 @@
   margin: 15px 0px;
 }
 
-.w3-center:hover{
+.w3-center:hover {
   color: yellow;
 }
 
-.mySlides {display:none;}
-
-.w3-display-middle{
-font-family: 'harryfont';
-
+.mySlides {
+  display: none;
 }
 
+.w3-display-middle {
+  font-family: 'harryfont';
+}
 
-
-#gameLink{
+#gameLink {
   color: white;
   font-family: 'harryfont';
   font-size: 35px;
-  margin-right: 85%;  /* we really need to change this to a float lol #jank*/
+  margin-right: 85%;
   text-decoration: none;
   cursor: url(../images/transparent_wand_32x32.png), auto;
 }
 
-#gameLink:hover{
+#gameLink:hover{ 
   color: yellow;
 }
 
-#aboutUsLink{
+#aboutUsLink {
   color: white;
   font-family: 'harryfont';
   font-size: 35px;
@@ -82,15 +77,15 @@ font-family: 'harryfont';
   cursor: url(../images/transparent_wand_32x32.png), auto;
 }
 
-#aboutUsLink:hover{
+#aboutUsLink:hover {
   color: yellow;
 }
 
-#buttonForm{
+#buttonForm {
 padding: 1%;
 }
 
-#buttonForm:hover{
+#buttonForm:hover {
   color: yellow;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: orange;
@@ -98,16 +93,11 @@ padding: 1%;
   cursor: url(../images/transparent_wand_32x32.png), auto;
 }
 
-.w3-button:hover{
+.w3-button:hover {
   box-shadow:0px 0px 50px 10px  whitesmoke ;  
   cursor: url(../images/transparent_wand_32x32.png), auto;
 }
 
-
-
-
-
-/* Adam's work */
 .container {
   position: fixed;
   width: 100%;
