@@ -3,6 +3,12 @@ body {
   background-image: url(../images/forbid.jpg); 
 }
 
+@font-face {
+  font-family: 'harryfont';
+  src: url('../fonts/HARRYP__.TTF');
+}
+
+/* header section */
 #homeLink{
   color: white;
   font-family: 'harryfont';
@@ -32,55 +38,41 @@ body {
   text-align: center;
 }
 
+/* Answer Section */
 #questionSectionElement {
-  background-color: rgb(255, 255, 255, .8);
+  background-color: rgb(255, 255, 255, .6);
   margin: 100px;
-  /* opacity: 0.8; */
   font-size: 45px;
   text-align: center;
   padding-bottom: 30px;
-  /* font-family: 'harryfont'; */
   font-family: 'Indie Flower', cursive;
 }
 
-@font-face {
-  font-family: 'harryfont';
-  src: url('../fonts/HARRYP__.TTF');
-}
-
-/* #instructions2{
-  position: relative;
-  margin-left: 15%;
-  margin-top: 15%;
-  border: 1px white solid;
-} */
-
-/* Answer Section */
 #domQuestionText {
   font-size: 40px;
   margin-bottom: 30px;
 }
 
 #domAnswerOneText, #domAnswerTwoText {
-  /* border: 1px black solid; */
   padding: 15px;
   text-align: center;
-  /* width: 75%; */
   margin-top: 10px;
   font-size: 35px;
-  /* margin-bottom: 10px; */
   cursor: url(../images/transparent_wand_32x32.png), auto;
-
 }
 
 /* Question Title Section */
 #domQuestionId {
-  /* font-weight: bolder; */
   font-size: 85px;
   text-transform: capitalize;
   margin-top: 100px;
   margin-bottom: 60px;
   font-family: 'harryfont';
+}
+
+#domquestionImage {
+  height: 100px;
+  width: 100px;
 }
 
 #domAnswerOneText:hover, #domAnswerTwoText:hover {
@@ -101,12 +93,14 @@ img {
   opacity: 1.0;
 }
 
+/* High Score table */
 #myTable{
-  color: white;
-  margin-top: 20px;
-  font-size: 80px;
+  color: rgb(227, 227, 51);
+  margin-top: 80px;
+  font-size: 60px;
   font-family: 'harryfont';
   align-self: center;
+  text-align: center;
 }
 
 table.center {
