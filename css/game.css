@@ -3,11 +3,17 @@ body {
   background-image: url(../images/forbid.jpg); 
 }
 
+@font-face {
+  font-family: 'harryfont';
+  src: url('../fonts/HARRYP__.TTF');
+}
+
+/* header section */
 #homeLink{
   color: white;
   font-family: 'harryfont';
   font-size: 50px;
-  margin-right: 90%;
+  margin-right: 85%;
   text-decoration: none;
 }
 #homeLink:hover{
@@ -30,69 +36,53 @@ body {
   font-size: 100px;
   color: white;
   text-align: center;
-}
-
-#questionSectionElement {
-  background-color: #ffffff;
-  margin: 100px;
-  opacity: 0.5;
-  font-size: 45px;
-  text-align: center;
-  padding-bottom: 50px;
-  font-family: 'Marck Script';
-  font-weight: bolder;
-}
-
-/* #body2{
-  margin-top: 2%;
-  font-size: 40px;
-  color: white;
-  font-weight: bolder;
-  font-family: 'harryfont';
-  cursor: url(../images/transparent_wand_32x32.png), auto;
-  margin-left: 30%;
-  margin-right: 30%;
-} */
-
-@font-face {
-  font-family: 'harryfont';
-  src: url('../fonts/HARRYP__.TTF');
-}
-
-#instructions2{
-  position: relative;
-  margin-left: 15%;
-  margin-top: 15%;
-  border: 1px white solid;
+  margin: 20px 20px 20px 20px;
 }
 
 /* Answer Section */
-#domAnswerOneText, #domAnswerTwoText {
-  border: 1px black solid;
-  padding: 3px;
+#questionSectionElement {
+  background-color: rgb(255, 255, 255, .6);
+  margin: 10px;
+  font-size: 45px;
   text-align: center;
-  width: 75%;
-  margin: auto;
-  margin-bottom: px;
-  cursor: url(../images/transparent_wand_32x32.png), auto;
+  padding-bottom: 30px;
+  font-family: 'Indie Flower', cursive;
+}
 
+#domQuestionText {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+#domAnswerOneText, #domAnswerTwoText {
+  padding: 15px;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 35px;
+  cursor: url(../images/transparent_wand_32x32.png), auto;
+}
+
+/* Question Title Section */
+#domQuestionId {
+  font-size: 85px;
+  text-transform: capitalize;
+  margin-top: 100px;
+  margin-bottom: 60px;
+  font-family: 'harryfont';
+}
+
+#domquestionImage {
+  height: 100px;
+  width: 100px;
 }
 
 #domAnswerOneText:hover, #domAnswerTwoText:hover {
   background-color: lightgray;
 }
 
-/* Question Title Section */
-#domQuestionId {
-  font-weight: bold;
-  font-size: 50px;
-  text-transform: capitalize;
-  margin-top: 100px;
-  margin-bottom: 300px;
-}
 
 /* if empty answer no border */
-#body2 * :empty {
+#domAnswerOneText:empty, #domAnswerTwoText:empty  {
   display: none;
 }
 
@@ -100,18 +90,29 @@ body {
 img {
   display: block;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 20px;
+  opacity: 1.0;
 }
 
+/* High Score table */
 #myTable{
-  color: white;
-  font-weight: bolder;
-  font-size: 50px;
-  margin-left:20%;
+  color: rgb(227, 227, 51);
+  margin-top: 10px;
+  font-size: 40px;
+  font-family: 'harryfont';
+  align-self: center;
+  text-align: center;
 }
+
+table.center {
+  margin-left:auto; 
+  margin-right:auto;
+}
+
 
 #image{
   position: absolute;
   margin-top: 9%;
   margin-left: 2%;
 }
+
