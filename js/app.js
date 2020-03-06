@@ -30,6 +30,9 @@ new NewQuestion('centaur', 'A centaur is walking towards you. Do you:', '../imag
 new NewQuestion('fork', 'After greeting the centaur, you continue on your path. You come to a fork in the road.', '../images/fork1.png', 'Left path.', 'death', 'Right path.', 'house');
 new NewQuestion('house', 'You walk along the path and the sorting hat appears, "Which house would like me to sort you into?"', '../images/house1.jpg', 'Hufflepuff and Ravenclaw', 'success', 'Gryffindor and Slytherin', 'success');
 
+
+
+
 // General purpose function to write anything to the DOM and give it an id
 function renderToDom(parentEl, childEl, textToWrite, domId) {
   var parentLocation = document.getElementById(parentEl);
@@ -112,6 +115,24 @@ function pathHandler(event) {
 //*****LOCAL STORAGE CODE*****
 //////////////////////////////
 
+var harryArray = [];
+
+function SaveImages(src){
+  this.src = src;
+  harryArray.push(this);
+};
+
+new SaveImages('../images/harryavatar.png');
+new SaveImages('../images/hermoineavatar.png');
+new SaveImages('../images/ronavatar.png');
+
+var harry1 = harryArray[0].src;
+var hermoine1 = harryArray[1].src;
+var ron1 = harryArray[2].src;
+var pic1 = document.getElementById('image');
+
+
+
 var savedPlayer = []; // same as in index.js
 
 // Logic to load proper question on game.html loading, based on currentPlayer in local storage
@@ -129,8 +150,6 @@ function NewPlayer(username, currentPosition = 'devilsnare', deathCount = 0) {
   this.currentPosition = currentPosition;
   this.deathCount = deathCount;
   savedPlayer.push(this);
-
-
 }
 
 // Saves an array to local storage and names it
@@ -145,6 +164,19 @@ function getFromLocalStorage(keyname) {
   var parsedData = JSON.parse(stringedData);
   return parsedData;
 }
+
+
+
+if(getFromLocalStorage('../images/harryavatar.png')){
+  pic1.src = harryArray[0].src;
+}
+
+if(getFromLocalStorage('../images/hermoineavatar.png')){
+  pic1.src = harryArray[1].src;
+}
+
+if(getFromLocalStorage('../images/ronavatar.png')){
+  pic1.src = harryArray[2].src
 
 // Reset Button
 document.getElementById('playAgain').addEventListener('click', resetGame);
@@ -161,5 +193,6 @@ function resetGame(event) {
     document.getElementById('highScore').remove();
   }
   loadQuestion('devilsnare');
+
 }
 
