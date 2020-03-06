@@ -195,4 +195,4 @@ function resetGame(event) {
   loadQuestion('devilsnare');
 
 }
-
+}
