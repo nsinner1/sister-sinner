@@ -10,8 +10,8 @@ var harryP = document.getElementById('harry');
 var hermoineG = document.getElementById('hermoine');
 var ronW = document.getElementById('ron');
 harryP.addEventListener('click', handleClick);
-hermoineG.addEventListener('click', handleClick);
-ronW.addEventListener('click', handleClick);
+hermoineG.addEventListener('click', handleClick1);
+ronW.addEventListener('click', handleClick2);
 
 
 
@@ -67,18 +67,33 @@ new SaveImages('../images/ronavatar.png');
 
 
 function handleClick(e){
-  // var clickedPic = e.target.src;
+  var clickedPic = e.target.src;
   var harry1 = harryArray[0].src;
-  var hermoine1 = harryArray[1].src;
-  var ron1 = harryArray[2].src;
   
   e.preventDefault();
-   
-  saveToLocalStorage('harry', harry1);
-  saveToLocalStorage('hermoine', hermoine1);
-  saveToLocalStorage('ron', ron1);
+  if(clickedPic){
+    saveToLocalStorage('harry', harry1);
+  }
+}
 
+function handleClick1(e){
+  var clickedPic = e.target.src;
+  var hermoine1 = harryArray[1].src;
 
+  e.preventDefault();
+  if(clickedPic){
+    saveToLocalStorage('hermoine', hermoine1);
+  }
+}
+
+function handleClick2(e){
+  var clickedPic = e.target.src;
+  var ron1 = harryArray[2].src;
+
+  e.preventDefault();
+  if(clickedPic){
+    saveToLocalStorage('ron', ron1);
+  } 
 }
   
 
