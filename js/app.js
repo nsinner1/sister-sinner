@@ -16,7 +16,7 @@ function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, ans
 // add features: button to restart, back track, or nav to home about etc
 
 // New questions go here. includes death state and success state. could include a death text feature for unique death states for each question
-new NewQuestion('death', 'You have died. Your ghost haunts the Forbidden Forest warning wary travelers of the dangers that reside therein.', '../images/particle gif.gif', 'Play again?', 'devilsnare');
+new NewQuestion('death', 'You have died. Your ghost haunts the Forbidden Forest warning wary travelers of the dangers that reside therein.', '../images/particle.gif', 'Play again?', 'devilsnare');
 new NewQuestion('success', 'Congratulations! You have escaped the Forbidden Forest with your life.', '../images/congrats.gif', 'Play again?', 'devilsnare');
 new NewQuestion('devilsnare', 'You walk through the dark and damp Forbidden Forest when vines start to wrap around your ankles causing you to stumble. As you fall, the snake-like tendrils wrap even tighter and move up your legs. Do you:', '../images/devils_snare1.jpg', 'Struggle and pull your legs free.', 'death', 'Point your wand at the vines and yell, "Incendio!!"', 'fluffy');
 new NewQuestion('fluffy', 'Continuing along the path, you come across a giant three-headed dog guarding a forked intersection. It gets up lazily as three massive heads turn to glare at you with drool leaking out of three sets of teeth. Do you:', '../images/Fluffy1.png', 'Pull out the flute tucked in your robe and play an improvised song.', 'potions', 'Run! Are you kidding me!? You don\'t want to become dinner!', 'death');
