@@ -36,12 +36,13 @@ body {
   font-size: 100px;
   color: white;
   text-align: center;
+  margin: 20px 20px 20px 20px;
 }
 
 /* Answer Section */
 #questionSectionElement {
   background-color: rgb(255, 255, 255, .6);
-  margin: 100px;
+  margin: 10px;
   font-size: 45px;
   text-align: center;
   padding-bottom: 30px;
@@ -96,8 +97,8 @@ img {
 /* High Score table */
 #myTable{
   color: rgb(227, 227, 51);
-  margin-top: 80px;
-  font-size: 60px;
+  margin-top: 10px;
+  font-size: 40px;
   font-family: 'harryfont';
   align-self: center;
   text-align: center;
