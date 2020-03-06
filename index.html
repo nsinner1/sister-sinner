@@ -12,95 +12,89 @@
   <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Julius+Sans+One|Oswald" rel="stylesheet">
 </head>
 
-<header>
-</header>
-
 <body id="body1">
   <div class="container">
 
+    <main>
+      <a id="gameLink" href="game.html">Game Page</a>
+      <a id="aboutUsLink" href="aboutus.html">About Us</a>
+    </main>
 
-  <main>
-    <a id="gameLink" href="game.html">Game Page</a>
-    <a id="aboutUsLink" href="aboutus.html">About Us</a>
-  </main>
+    <a href="index.html"><h2 class="w3-center">ESCAPE THE FORBIDDEN FOREST</h2></a>
 
-  
-  <a href="index.html"><h2 class="w3-center">ESCAPE THE FORBIDDEN FOREST</h2></a>
+    <div class="w3-content w3-display-container">
 
+      <div class="w3-display-container mySlides">
+        <img src="images/hogwarts.gif" style="width:100%">
+        <div  class="w3-display-middle w3-xlarge w3-container w3-padding-16 w3-black w3-center">
+          WELCOME TO THE FORBIDDEN FOREST GAME.<br>
+          <br>
+          CLICK THE NEXT ARROW TO READ THE INSTRUCTIONS.
+        </div>
+      </div>
 
-  
-  <div class="w3-content w3-display-container">
-  
-  <div class="w3-display-container mySlides">
-    <img src="images/hogwarts.gif" style="width:100%">
-    <div  class="w3-display-middle w3-xlarge w3-container w3-padding-16 w3-black w3-center">
-      WELCOME TO THE FORBIDDEN FOREST GAME.<br>
-      <br>
-      CLICK THE NEXT ARROW TO READ THE INSTRUCTIONS.
+      <div class="w3-display-container mySlides">
+        <img src="images/myrtles-bathroom_6861283143_o.gif" style="width:100%">
+        <div  class="w3-display-middle w3-xlarge w3-container w3-padding-40 w3-black w3-center">
+          TEST YOUR HARRY POTTER KNOWLEDGE AND SEE IF YOU CAN ESCAPE THE FORBIDDEN FOREST.
+        </div>
+      </div>
+
+      <div class="w3-display-container mySlides">
+        <img src="images/hall.gif" style="width:100%">
+        <div  class="w3-display-middle w3-xlarge w3-container w3-padding-16 w3-black w3-center">
+          WHEN GIVEN A PROMPT, USE YOUR KNOWLEDGE TO JOURNEY THROUGH THE FORBIDDEN FOREST.
+        </div>
+      </div>
+
+      <div class="w3-display-container mySlides">
+        <img src="images/multiharry.gif" style="width:100%">
+        <div class="w3-display-middle w3-xlarge w3-container w3-padding-40 w3-black w3-center">
+          IF YOU GET A QUESTION INCORRECT, YOU DIE! <br>
+          <br>
+          LUCKILY, WE CREATED LOCAL STORAGE AND YOU CAN TRY AGAIN.
+        </div>
+      </div>
+
+      <div class="w3-display-container mySlides">
+        <img src="images/scared.gif" style="width:100%">
+        <div  class="w3-display-middle w3-xlarge w3-container w3-padding-16 w3-black w3-center">
+          CHOOSE A HARRY POTTER CHARACTER!<br>
+          <br>
+          THEN<br>
+          <br>
+          ENTER A WIZARD-NAME AND CLICK SUBMIT! <br>
+        </div>
+      </div>
+
+      <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
+      <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+
     </div>
-  </div>
-  
-  <div class="w3-display-container mySlides">
-    <img src="images/myrtles-bathroom_6861283143_o.gif" style="width:100%">
-    <div  class="w3-display-middle w3-xlarge w3-container w3-padding-40 w3-black w3-center">
-      TEST YOUR HARRY POTTER KNOWLEDGE AND SEE IF YOU CAN ESCAPE THE FORBIDDEN FOREST.
+
+    <div class="avatars">
+      <img value="click"  title="harry" id= "harry" src="images/harryavatar.png">
+      <img value="click" title="hermoine" id="hermoine" src="images/hermoineavatar.png">
+      <img value= "click" title="ron" id="ron" src="images/ronavatar.png">
     </div>
-  </div>
-  
-  <div class="w3-display-container mySlides">
-    <img src="images/hall.gif" style="width:100%">
-    <div  class="w3-display-middle w3-xlarge w3-container w3-padding-16 w3-black w3-center">
-      WHEN GIVEN A PROMPT, USE YOUR KNOWLEDGE TO JOURNEY THROUGH THE FORBIDDEN FOREST.
+
+    <div>
+      <form id="userForm">
+        <fieldset>
+          <input id="enteredUsername" type="text" placeholder="Enter a Wizard-Name">
+          <button id="buttonForm" value="submit">Submit</button>
+        </fieldset>
+      </form>
     </div>
-  </div>
-  
-  <div class="w3-display-container mySlides">
-    <img src="images/multiharry.gif" style="width:100%">
-    <div class="w3-display-middle w3-xlarge w3-container w3-padding-40 w3-black w3-center">
-      IF YOU GET A QUESTION INCORRECT, YOU DIE! <br>
-      <br>
-      LUCKILY, WE CREATED LOCAL STORAGE AND YOU CAN TRY AGAIN.
-    </div>
-  </div>
-  <div class="w3-display-container mySlides">
-    <img src="images/scared.gif" style="width:100%">
-    <div  class="w3-display-middle w3-xlarge w3-container w3-padding-16 w3-black w3-center">
-      CHOOSE A HARRY POTTER CHARACTER!<br>
-      <br>
-      THEN<br>
-      <br>
-      ENTER A WIZARD-NAME AND CLICK SUBMIT! <br>
-    </div>
-  </div>
-  <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
-  <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
-  </div>
-  <div class="avatars">
-    <img value="click"  title="harry" id= "harry" src="images/harryavatar.png">
-    <img value="click" title="hermoine" id="hermoine" src="images/hermoineavatar.png">
-    <img value= "click" title="ron" id="ron" src="images/ronavatar.png">
-  </div>
 
-  <div>
-  <form id="userForm">
-    <fieldset>
-      <input id="enteredUsername" type="text" placeholder="Enter a Wizard-Name">
-      <button id="buttonForm" value="submit">Submit</button>
-    </fieldset>
-  </form>
-  </div>
-
-  <audio autoplay controls  style="display: none;">
-    <source id="audio" src="harrysong.mp3" type="audio/mpeg">
-  </audio>
-
-  <footer>
-
-  </footer>
-
+    <audio autoplay controls  style="display: none;">
+      <source id="audio" src="harrysong.mp3" type="audio/mpeg">
+    </audio>
 
   </div>
+
   <script src="js/index.js"></script>
+
 </body>
 
 </html>

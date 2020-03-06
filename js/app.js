@@ -13,9 +13,7 @@ function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, ans
   questionList.push(this);
 }
 
-// add features: button to restart, back track, or nav to home about etc
-
-// New questions go here. includes death state and success state. could include a death text feature for unique death states for each question
+// New questions go here. includes death state and success state
 new NewQuestion('death', 'You have died. Your ghost haunts the Forbidden Forest warning wary travelers of the dangers that reside therein.', '../images/particle.gif', 'Play again?', 'devilsnare');
 new NewQuestion('success', 'Congratulations! You have escaped the Forbidden Forest with your life.', '../images/congrats.gif', 'Play again?', 'devilsnare');
 new NewQuestion('devilsnare', 'You walk through the dark and damp Forbidden Forest when vines start to wrap around your ankles causing you to stumble. As you fall, the snake-like tendrils wrap even tighter and move up your legs. Do you:', '../images/devils_snare1.jpg', 'Struggle and pull your legs free.', 'death', 'Point your wand at the vines and yell, "Incendio!!"', 'fluffy');
@@ -29,9 +27,6 @@ new NewQuestion('spiders', 'You are surrounded by spiders. Do you step on them o
 new NewQuestion('centaur', 'A centaur is walking towards you. Do you:', '../images/Centaur1.jpg', 'Walk towards the centaur and greet it.', 'fork', 'Turn your back and run.', 'death');
 new NewQuestion('fork', 'After greeting the centaur, you continue on your path. You come to a fork in the road.', '../images/fork1.png', 'Left path.', 'death', 'Right path.', 'house');
 new NewQuestion('house', 'You walk along the path and the sorting hat appears, "Which house would like me to sort you into?"', '../images/house1.jpg', 'Hufflepuff and Ravenclaw', 'success', 'Gryffindor and Slytherin', 'success');
-
-
-
 
 // General purpose function to write anything to the DOM and give it an id
 function renderToDom(parentEl, childEl, textToWrite, domId) {
@@ -49,10 +44,9 @@ function findQuestionIndex(id) {
       return i;
     }
   }
-  console.log('findQLIdIndex() was given a bad Question ID.'); // debug, remove later
 }
 
-// Generates a question based on id string and manipulates local storage. could add functionality to display answers randomly
+// Generates a question based on id string and manipulates local storage.
 function loadQuestion(id) {
   savedPlayer[0].currentPosition = id; // updates savedPlayer array
   saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // save current question (from savedPlayer array) to local storage. tied to currentPlayer
@@ -62,7 +56,6 @@ function loadQuestion(id) {
     savedPlayer[0].deathCount++; // updates savedPlayer array
     saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // saves savedPlayer array to local storage with updated death count
   }
-  // This could be written in a for loop (probably with an array)
   renderToDom('questionSectionElement', 'p', questionObject.questionId, 'domQuestionId');
   var parentEl = document.getElementById('domQuestionId');
   var imgEl = document.createElement('img');
@@ -82,7 +75,7 @@ function loadQuestion(id) {
     var getTable = document.getElementById('myTable');
     var th = document.createElement('thead');
     th.setAttribute('id', 'highScore');
-    th.textContent = `Congradulations ${savedPlayer[0].username}, you have successfully found your way out of the Forbidden Forest. Your score is ${savedPlayer[0].deathCount} deaths!`;
+    th.textContent = `Congratulations ${savedPlayer[0].username}, you have successfully found your way out of the Forbidden Forest. Your score is ${savedPlayer[0].deathCount} deaths!`;
     getTable.appendChild(th);
     savedPlayer[0].deathCount = 0; // updates savedPlayer array, resets death count to 0
     saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // saves savedPlayer array to local storage with updated death count
@@ -92,7 +85,6 @@ function loadQuestion(id) {
 // Basically the function for clicking on answers.
 function pathHandler(event) {
   // first clears the screen by element.remove() on the displayed html elements
-  // this can be shorted with a loop
   document.getElementById('domQuestionId').remove();
   document.getElementById('domQuestionText').remove();
   document.getElementById('domAnswerOneText').remove();
@@ -104,16 +96,10 @@ function pathHandler(event) {
     document.getElementById('highScore').remove();
   }
   // runs loadQuestion() with the answers path assigned as .path
-  // again, this won't work unless .path is assigned in loadQuestion()
   loadQuestion(event.target.path);
 }
 
-// High score goes here
-
-
-//////////////////////////////
-//*****LOCAL STORAGE CODE*****
-//////////////////////////////
+// *****LOCAL STORAGE CODE*****
 
 var harryArray = [];
 
@@ -126,12 +112,7 @@ new SaveImages('../images/harryavatar.png');
 new SaveImages('../images/hermoineavatar.png');
 new SaveImages('../images/ronavatar.png');
 
-var harry1 = harryArray[0].src;
-var hermoine1 = harryArray[1].src;
-var ron1 = harryArray[2].src;
 var pic1 = document.getElementById('image');
-
-
 
 var savedPlayer = []; // same as in index.js
 
@@ -142,7 +123,7 @@ if (localStorage.getItem('currentPlayer') !== null) {
   loadQuestion(savedPlayer[0].currentPosition);
   pic1.src = savedPlayer[0].playerAvatar;
 } else {
-  loadQuestion('death'); // remove if/else from final code, debug purposes only
+  loadQuestion('death');
 }
 
 // Same constructor function from index.js
@@ -167,26 +148,11 @@ function getFromLocalStorage(keyname) {
   return parsedData;
 }
 
-
-
-// if(getFromLocalStorage('../images/harryavatar.png')){
-//   pic1.src = harryArray[0].src;
-// }
-
-// if(getFromLocalStorage('../images/hermoineavatar.png')){
-//   pic1.src = harryArray[1].src;
-// }
-
-// if(getFromLocalStorage('../images/ronavatar.png')){
-//   pic1.src = harryArray[2].src
-// }
-
 // Reset Button
 document.getElementById('playAgain').addEventListener('click', resetGame);
 
 function resetGame(event) {
   event.preventDefault();
-  console.log('this works I guess');
   savedPlayer[0].deathCount = 0;
   saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`);
   document.getElementById('domQuestionId').remove();
