@@ -1,6 +1,7 @@
 'use strict';
 
-var savedPlayers = [];
+var savedPlayer = [];
+var savedAvatar = [];
 
 var userForm = document.getElementById('userForm');
 userForm.addEventListener('submit', handleSubmit);
@@ -25,19 +26,20 @@ function handleSubmit(event) {
     document.location = 'game.html'; // loads game page
     // new game
   } else {
-    new NewPlayer(event.target.enteredUsername.value); // create NewPlayer object which goes in savedPlayers array. The only value passed in is the username
-    saveToLocalStorage(savedPlayers, `player${event.target.enteredUsername.value}`); // save NewPlayer object to local storage with key = 'player'+username
+    new NewPlayer(event.target.enteredUsername.value, savedAvatar[0]); // create NewPlayer object which goes in savedPlayer array. The only value passed in is the username
+    saveToLocalStorage(savedPlayer, `player${event.target.enteredUsername.value}`); // save NewPlayer object to local storage with key = 'player'+username
     saveToLocalStorage(event.target.enteredUsername.value, 'currentPlayer'); // set current player
     document.location = 'game.html'; // loads game page
   }
 }
 
 // Constructor for NewPlayer objects. same as in app.js
-function NewPlayer(username, currentPosition = 'devilsnare', deathCount = 0) {
+function NewPlayer(username, playerAvatar = undefined, currentPosition = 'devilsnare', deathCount = 0) {
   this.username = username;
+  this.playerAvatar = playerAvatar;
   this.currentPosition = currentPosition;
   this.deathCount = deathCount;
-  savedPlayers.push(this);
+  savedPlayer.push(this);
 }
 
 // Saves an array to local storage and names it
@@ -58,7 +60,7 @@ var harryArray = [];
 function SaveImages(src){
   this.src = src;
   harryArray.push(this);
-};
+}
 
 new SaveImages('../images/harryavatar.png');
 new SaveImages('../images/hermoineavatar.png');
@@ -67,38 +69,41 @@ new SaveImages('../images/ronavatar.png');
 
 
 function handleClick(e){
+  e.preventDefault();
   var clickedPic = e.target.src;
   var harry1 = harryArray[0].src;
-  
-  e.preventDefault();
+
   if(clickedPic){
-    saveToLocalStorage('harry', harry1);
+    savedAvatar = [];
+    savedAvatar.push(harry1);
   }
 }
 
 function handleClick1(e){
+  e.preventDefault();
   var clickedPic = e.target.src;
   var hermoine1 = harryArray[1].src;
 
-  e.preventDefault();
   if(clickedPic){
-    saveToLocalStorage('hermoine', hermoine1);
+    savedAvatar = [];
+    savedAvatar.push(hermoine1);
   }
 }
 
 function handleClick2(e){
+  e.preventDefault();
   var clickedPic = e.target.src;
   var ron1 = harryArray[2].src;
 
-  e.preventDefault();
   if(clickedPic){
-    saveToLocalStorage('ron', ron1);
-  } 
+    savedAvatar = [];
+    savedAvatar.push(ron1);
+  }
 }
-  
 
-  
-  var slideIndex = 1;
+
+
+var slideIndex = 1;
 showDivs(slideIndex);
 
 function plusDivs(n) {
@@ -112,7 +117,7 @@ function showDivs(n) {
   if (n < 1) {slideIndex = x.length}
   for (i = 0; i < x.length; i++) {
 
-    x[i].style.display = "none";  
+    x[i].style.display = "none";
 
   }
   x[slideIndex-1].style.display = "block";

@@ -82,7 +82,7 @@ function loadQuestion(id) {
     var getTable = document.getElementById('myTable');
     var th = document.createElement('thead');
     th.setAttribute('id', 'highScore');
-    th.textContent = `Congradulations ${savedPlayer[0].username}, you have successfully found your way out of the Forbidden Forest. Your total death score is ${savedPlayer[0].deathCount}!f`;
+    th.textContent = `Congradulations ${savedPlayer[0].username}, you have successfully found your way out of the Forbidden Forest. Your score is ${savedPlayer[0].deathCount} deaths!`;
     getTable.appendChild(th);
     savedPlayer[0].deathCount = 0; // updates savedPlayer array, resets death count to 0
     saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // saves savedPlayer array to local storage with updated death count
@@ -120,7 +120,7 @@ var harryArray = [];
 function SaveImages(src){
   this.src = src;
   harryArray.push(this);
-};
+}
 
 new SaveImages('../images/harryavatar.png');
 new SaveImages('../images/hermoineavatar.png');
@@ -138,15 +138,17 @@ var savedPlayer = []; // same as in index.js
 // Logic to load proper question on game.html loading, based on currentPlayer in local storage
 if (localStorage.getItem('currentPlayer') !== null) {
   var loadedLocalData = getFromLocalStorage(`player${getFromLocalStorage('currentPlayer')}`);
-  new NewPlayer(loadedLocalData[0].username, loadedLocalData[0].currentPosition, loadedLocalData[0].deathCount);
+  new NewPlayer(loadedLocalData[0].username, loadedLocalData[0].playerAvatar, loadedLocalData[0].currentPosition, loadedLocalData[0].deathCount);
   loadQuestion(savedPlayer[0].currentPosition);
+  pic1.src = savedPlayer[0].playerAvatar;
 } else {
   loadQuestion('death'); // remove if/else from final code, debug purposes only
 }
 
 // Same constructor function from index.js
-function NewPlayer(username, currentPosition = 'devilsnare', deathCount = 0) {
+function NewPlayer(username, playerAvatar = undefined, currentPosition = 'devilsnare', deathCount = 0) {
   this.username = username;
+  this.playerAvatar = playerAvatar;
   this.currentPosition = currentPosition;
   this.deathCount = deathCount;
   savedPlayer.push(this);
@@ -167,19 +169,21 @@ function getFromLocalStorage(keyname) {
 
 
 
-if(getFromLocalStorage('../images/harryavatar.png')){
-  pic1.src = harryArray[0].src;
-}
+// if(getFromLocalStorage('../images/harryavatar.png')){
+//   pic1.src = harryArray[0].src;
+// }
 
-if(getFromLocalStorage('../images/hermoineavatar.png')){
-  pic1.src = harryArray[1].src;
-}
+// if(getFromLocalStorage('../images/hermoineavatar.png')){
+//   pic1.src = harryArray[1].src;
+// }
 
-if(getFromLocalStorage('../images/ronavatar.png')){
-  pic1.src = harryArray[2].src
-}
+// if(getFromLocalStorage('../images/ronavatar.png')){
+//   pic1.src = harryArray[2].src
+// }
+
 // Reset Button
 document.getElementById('playAgain').addEventListener('click', resetGame);
+
 function resetGame(event) {
   event.preventDefault();
   console.log('this works I guess');
@@ -194,4 +198,3 @@ function resetGame(event) {
   }
   loadQuestion('devilsnare');
 }
-
