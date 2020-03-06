@@ -177,7 +177,7 @@ if(getFromLocalStorage('../images/hermoineavatar.png')){
 
 if(getFromLocalStorage('../images/ronavatar.png')){
   pic1.src = harryArray[2].src
-
+}
 // Reset Button
 document.getElementById('playAgain').addEventListener('click', resetGame);
 function resetGame(event) {
@@ -193,6 +193,5 @@ function resetGame(event) {
     document.getElementById('highScore').remove();
   }
   loadQuestion('devilsnare');
+}
 
-}
-}
