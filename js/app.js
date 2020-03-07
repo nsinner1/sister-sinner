@@ -101,17 +101,6 @@ function pathHandler(event) {
 
 // *****LOCAL STORAGE CODE*****
 
-var harryArray = [];
-
-function SaveImages(src){
-  this.src = src;
-  harryArray.push(this);
-}
-
-new SaveImages('images/harryavatar.png');
-new SaveImages('images/hermoineavatar.png');
-new SaveImages('images/ronavatar.png');
-
 var pic1 = document.getElementById('image');
 
 var savedPlayer = []; // same as in index.js
