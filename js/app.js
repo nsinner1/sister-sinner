@@ -13,25 +13,20 @@ function NewQuestion(questionId, questionText, imgSrc, answerOneText = null, ans
   questionList.push(this);
 }
 
-// add features: button to restart, back track, or nav to home about etc
-
-// New questions go here. includes death state and success state. could include a death text feature for unique death states for each question
-new NewQuestion('death', 'You have died. Your ghost haunts the Forbidden Forest warning wary travelers of the dangers that reside therein.', '../images/particle.gif', 'Play again?', 'devilsnare');
-new NewQuestion('success', 'Congratulations! You have escaped the Forbidden Forest with your life.', '../images/congrats.gif', 'Play again?', 'devilsnare');
-new NewQuestion('devilsnare', 'You walk through the dark and damp Forbidden Forest when vines start to wrap around your ankles causing you to stumble. As you fall, the snake-like tendrils wrap even tighter and move up your legs. Do you:', '../images/devils_snare1.jpg', 'Struggle and pull your legs free.', 'death', 'Point your wand at the vines and yell, "Incendio!!"', 'fluffy');
-new NewQuestion('fluffy', 'Continuing along the path, you come across a giant three-headed dog guarding a forked intersection. It gets up lazily as three massive heads turn to glare at you with drool leaking out of three sets of teeth. Do you:', '../images/Fluffy1.png', 'Pull out the flute tucked in your robe and play an improvised song.', 'potions', 'Run! Are you kidding me!? You don\'t want to become dinner!', 'death');
-new NewQuestion('potions', 'Ahead of you are seven bottles of different sizes and colors in row on a large tree stump. A sign next to the stump reads, "Drink one to continue on your journey. Warning: May be hazardous to health. Choose wisely." Do you:', '../images/potions1.jpg', 'Drink the smallest bottle in the middle.', 'the ghost', 'Drink the round red bottle on the left.', 'death');
-new NewQuestion('the ghost', 'An insubstantial ghost of a woodsman with a grisly chest injury sends chills down your spine. As you shudder and hurry by, he wheezes out behind you "You.. look lost... to get out of here head north... and remember, *cough hack* .. remember that moss always grows on the north side of a tree. More access to sunlight in these here woods." Continuing on, the path stops at the trunk of a large tree, with trails leading left and right. Sure enough, there is moss growing on the left side of its trunk. Do you:', '../images/myrtle1.jpg', 'Take the trail on the left.', 'the lantern', 'Take the trail on the right.', 'death');
-new NewQuestion('the lantern', 'The earth under your feet is getting squishy and you splash through some shallow muddy puddles. The smell of dank water lingers on the air. 20 yards ahead of you is a small wooden foot bridge. On the other side of the bride, the glow of a lantern hangs in the mist. A voice from that direction says, "Beware of sinkholes in the marsh." Do you:', '../images/dark_forest1.jpg', 'Cross the bridge.', 'death', 'Walk around the bridge.', 'sick');
-new NewQuestion('sick', 'After some time passes you aren\'t feeling so good. A worrying feeling at the pit of your stomach tells you that you may be poisoned. Do you:', '../images/Mandrake1.png', 'Drink a potion brewed of fluxweed, knotgrass, and powdered Bicorn horn.', 'death', 'Swallow a bezoar.', 'hippogriff');
-new NewQuestion('hippogriff', 'You feel a gust of strong wind behind your back and it is a hippogriff. Do you bow or run?', '../images/hippogriff1.jpg', 'You bow.', 'spiders', 'You run.', 'death');
-new NewQuestion('spiders', 'You are surrounded by spiders. Do you step on them or hold them?', '../images/spiders1.jpg', 'Hold them.', 'death', 'Step on them.', 'centaur');
-new NewQuestion('centaur', 'A centaur is walking towards you. Do you:', '../images/Centaur1.jpg', 'Walk towards the centaur and greet it.', 'fork', 'Turn your back and run.', 'death');
-new NewQuestion('fork', 'After greeting the centaur, you continue on your path. You come to a fork in the road.', '../images/fork1.png', 'Left path.', 'death', 'Right path.', 'house');
-new NewQuestion('house', 'You walk along the path and the sorting hat appears, "Which house would like me to sort you into?"', '../images/house1.jpg', 'Hufflepuff and Ravenclaw', 'success', 'Gryffindor and Slytherin', 'success');
-
-
-
+// New questions go here. includes death state and success state
+new NewQuestion('death', 'You have died. Your ghost haunts the Forbidden Forest warning wary travelers of the dangers that reside therein.', 'images/particle.gif', 'Play again?', 'devilsnare');
+new NewQuestion('success', 'Congratulations! You have escaped the Forbidden Forest with your life.', 'images/congrats.gif', 'Play again?', 'devilsnare');
+new NewQuestion('devilsnare', 'You walk through the dark and damp Forbidden Forest when vines start to wrap around your ankles causing you to stumble. As you fall, the snake-like tendrils wrap even tighter and move up your legs. Do you:', 'images/devils_snare1.jpg', 'Struggle and pull your legs free.', 'death', 'Point your wand at the vines and yell, "Incendio!!"', 'fluffy');
+new NewQuestion('fluffy', 'Continuing along the path, you come across a giant three-headed dog guarding a forked intersection. It gets up lazily as three massive heads turn to glare at you with drool leaking out of three sets of teeth. Do you:', 'images/Fluffy1.png', 'Pull out the flute tucked in your robe and play an improvised song.', 'potions', 'Run! Are you kidding me!? You don\'t want to become dinner!', 'death');
+new NewQuestion('potions', 'Ahead of you are seven bottles of different sizes and colors in row on a large tree stump. A sign next to the stump reads, "Drink one to continue on your journey. Warning: May be hazardous to health. Choose wisely." Do you:', 'images/potions1.jpg', 'Drink the smallest bottle in the middle.', 'the ghost', 'Drink the round red bottle on the left.', 'death');
+new NewQuestion('the ghost', 'An insubstantial ghost of a woodsman with a grisly chest injury sends chills down your spine. As you shudder and hurry by, he wheezes out behind you "You.. look lost... to get out of here head north... and remember, *cough hack* .. remember that moss always grows on the north side of a tree. More access to sunlight in these here woods." Continuing on, the path stops at the trunk of a large tree, with trails leading left and right. Sure enough, there is moss growing on the left side of its trunk. Do you:', 'images/myrtle1.jpg', 'Take the trail on the left.', 'the lantern', 'Take the trail on the right.', 'death');
+new NewQuestion('the lantern', 'The earth under your feet is getting squishy and you splash through some shallow muddy puddles. The smell of dank water lingers on the air. 20 yards ahead of you is a small wooden foot bridge. On the other side of the bride, the glow of a lantern hangs in the mist. A voice from that direction says, "Beware of sinkholes in the marsh." Do you:', 'images/dark_forest1.jpg', 'Cross the bridge.', 'death', 'Walk around the bridge.', 'sick');
+new NewQuestion('sick', 'After some time passes you aren\'t feeling so good. A worrying feeling at the pit of your stomach tells you that you may be poisoned. Do you:', 'images/Mandrake1.png', 'Drink a potion brewed of fluxweed, knotgrass, and powdered Bicorn horn.', 'death', 'Swallow a bezoar.', 'hippogriff');
+new NewQuestion('hippogriff', 'You feel a gust of strong wind behind your back and it is a hippogriff. Do you bow or run?', 'images/hippogriff1.jpg', 'You bow.', 'spiders', 'You run.', 'death');
+new NewQuestion('spiders', 'You are surrounded by spiders. Do you step on them or hold them?', 'images/spiders1.jpg', 'Hold them.', 'death', 'Step on them.', 'centaur');
+new NewQuestion('centaur', 'A centaur is walking towards you. Do you:', 'images/Centaur1.jpg', 'Walk towards the centaur and greet it.', 'fork', 'Turn your back and run.', 'death');
+new NewQuestion('fork', 'After greeting the centaur, you continue on your path. You come to a fork in the road.', 'images/fork1.png', 'Left path.', 'death', 'Right path.', 'house');
+new NewQuestion('house', 'You walk along the path and the sorting hat appears, "Which house would like me to sort you into?"', 'images/house1.jpg', 'Hufflepuff and Ravenclaw', 'success', 'Gryffindor and Slytherin', 'success');
 
 // General purpose function to write anything to the DOM and give it an id
 function renderToDom(parentEl, childEl, textToWrite, domId) {
@@ -49,10 +44,9 @@ function findQuestionIndex(id) {
       return i;
     }
   }
-  console.log('findQLIdIndex() was given a bad Question ID.'); // debug, remove later
 }
 
-// Generates a question based on id string and manipulates local storage. could add functionality to display answers randomly
+// Generates a question based on id string and manipulates local storage.
 function loadQuestion(id) {
   savedPlayer[0].currentPosition = id; // updates savedPlayer array
   saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // save current question (from savedPlayer array) to local storage. tied to currentPlayer
@@ -62,7 +56,6 @@ function loadQuestion(id) {
     savedPlayer[0].deathCount++; // updates savedPlayer array
     saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // saves savedPlayer array to local storage with updated death count
   }
-  // This could be written in a for loop (probably with an array)
   renderToDom('questionSectionElement', 'p', questionObject.questionId, 'domQuestionId');
   var parentEl = document.getElementById('domQuestionId');
   var imgEl = document.createElement('img');
@@ -82,7 +75,7 @@ function loadQuestion(id) {
     var getTable = document.getElementById('myTable');
     var th = document.createElement('thead');
     th.setAttribute('id', 'highScore');
-    th.textContent = `Congradulations ${savedPlayer[0].username}, you have successfully found your way out of the Forbidden Forest. Your score is ${savedPlayer[0].deathCount} deaths!`;
+    th.textContent = `Congratulations ${savedPlayer[0].username}, you have successfully found your way out of the Forbidden Forest. Your score is ${savedPlayer[0].deathCount} deaths!`;
     getTable.appendChild(th);
     savedPlayer[0].deathCount = 0; // updates savedPlayer array, resets death count to 0
     saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`); // saves savedPlayer array to local storage with updated death count
@@ -92,7 +85,6 @@ function loadQuestion(id) {
 // Basically the function for clicking on answers.
 function pathHandler(event) {
   // first clears the screen by element.remove() on the displayed html elements
-  // this can be shorted with a loop
   document.getElementById('domQuestionId').remove();
   document.getElementById('domQuestionText').remove();
   document.getElementById('domAnswerOneText').remove();
@@ -104,34 +96,12 @@ function pathHandler(event) {
     document.getElementById('highScore').remove();
   }
   // runs loadQuestion() with the answers path assigned as .path
-  // again, this won't work unless .path is assigned in loadQuestion()
   loadQuestion(event.target.path);
 }
 
-// High score goes here
+// *****LOCAL STORAGE CODE*****
 
-
-//////////////////////////////
-//*****LOCAL STORAGE CODE*****
-//////////////////////////////
-
-var harryArray = [];
-
-function SaveImages(src){
-  this.src = src;
-  harryArray.push(this);
-}
-
-new SaveImages('../images/harryavatar.png');
-new SaveImages('../images/hermoineavatar.png');
-new SaveImages('../images/ronavatar.png');
-
-var harry1 = harryArray[0].src;
-var hermoine1 = harryArray[1].src;
-var ron1 = harryArray[2].src;
 var pic1 = document.getElementById('image');
-
-
 
 var savedPlayer = []; // same as in index.js
 
@@ -142,7 +112,7 @@ if (localStorage.getItem('currentPlayer') !== null) {
   loadQuestion(savedPlayer[0].currentPosition);
   pic1.src = savedPlayer[0].playerAvatar;
 } else {
-  loadQuestion('death'); // remove if/else from final code, debug purposes only
+  loadQuestion('death');
 }
 
 // Same constructor function from index.js
@@ -167,26 +137,11 @@ function getFromLocalStorage(keyname) {
   return parsedData;
 }
 
-
-
-// if(getFromLocalStorage('../images/harryavatar.png')){
-//   pic1.src = harryArray[0].src;
-// }
-
-// if(getFromLocalStorage('../images/hermoineavatar.png')){
-//   pic1.src = harryArray[1].src;
-// }
-
-// if(getFromLocalStorage('../images/ronavatar.png')){
-//   pic1.src = harryArray[2].src
-// }
-
 // Reset Button
 document.getElementById('playAgain').addEventListener('click', resetGame);
 
 function resetGame(event) {
   event.preventDefault();
-  console.log('this works I guess');
   savedPlayer[0].deathCount = 0;
   saveToLocalStorage(savedPlayer, `player${savedPlayer[0].username}`);
   document.getElementById('domQuestionId').remove();

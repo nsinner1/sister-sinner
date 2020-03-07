@@ -1,4 +1,3 @@
-
 body { 
   background-image: url(../images/forbid.jpg); 
 }
@@ -16,6 +15,7 @@ body {
   margin-right: 85%;
   text-decoration: none;
 }
+
 #homeLink:hover{
   color: yellow;
 }
@@ -66,9 +66,10 @@ body {
 #domQuestionId {
   font-size: 85px;
   text-transform: capitalize;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 60px;
   font-family: 'harryfont';
+  padding-top: 15px;
 }
 
 #domquestionImage {
@@ -79,7 +80,6 @@ body {
 #domAnswerOneText:hover, #domAnswerTwoText:hover {
   background-color: lightgray;
 }
-
 
 /* if empty answer no border */
 #domAnswerOneText:empty, #domAnswerTwoText:empty  {
@@ -109,12 +109,9 @@ table.center {
   margin-right:auto;
 }
 
-
 #image{
   position: absolute;
   margin-top: 14%;
   margin-left: 2%;
   width: 15%;
-  /* margin-top: 30%; */
 }
-
