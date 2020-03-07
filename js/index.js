@@ -28,7 +28,7 @@ function handleSubmit(event) {
     new NewPlayer(event.target.enteredUsername.value, savedAvatar[0]); // create NewPlayer object which goes in savedPlayer array. The values passed in are username and avatar
     saveToLocalStorage(savedPlayer, `player${event.target.enteredUsername.value}`); // save NewPlayer object to local storage with key = 'player'+username
     saveToLocalStorage(event.target.enteredUsername.value, 'currentPlayer'); // set current player
-    document.location = 'game.html'; // loads game page
+    // document.location = 'game.html'; // loads game page
   }
 }
 
