@@ -121,7 +121,7 @@ if (localStorage.getItem('currentPlayer') !== null) {
   var loadedLocalData = getFromLocalStorage(`player${getFromLocalStorage('currentPlayer')}`);
   new NewPlayer(loadedLocalData[0].username, loadedLocalData[0].playerAvatar, loadedLocalData[0].currentPosition, loadedLocalData[0].deathCount);
   loadQuestion(savedPlayer[0].currentPosition);
-  pic1.src = savedPlayer[0].playerAvatar;
+  pic1.src = '../' + savedPlayer[0].playerAvatar;
 } else {
   loadQuestion('death');
 }
