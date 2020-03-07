@@ -61,9 +61,9 @@ function SaveImages(src) {
   harryArray.push(this);
 }
 
-new SaveImages('./images/harryavatar.png');
-new SaveImages('./images/hermoineavatar.png');
-new SaveImages('./images/ronavatar.png');
+new SaveImages('../images/harryavatar.png');
+new SaveImages('../images/hermoineavatar.png');
+new SaveImages('../images/ronavatar.png');
 
 function handleClick(e) {
   e.preventDefault();

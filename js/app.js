@@ -108,9 +108,9 @@ function SaveImages(src){
   harryArray.push(this);
 }
 
-new SaveImages('images/harryavatar.png');
-new SaveImages('images/hermoineavatar.png');
-new SaveImages('images/ronavatar.png');
+new SaveImages('./images/harryavatar.png');
+new SaveImages('./images/hermoineavatar.png');
+new SaveImages('./images/ronavatar.png');
 
 var pic1 = document.getElementById('image');
 
