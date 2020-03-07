@@ -1,4 +1,5 @@
-# Team Sister Sinner 201 Project 
+# Escape The Forbidden Forest
+## Team Sister Sinner 201 Project 
 
 ## Members
 Adam Owada - Natalie Sinner - Dipendra Khatri - Lami Beach
@@ -9,6 +10,7 @@ Adam Owada - Natalie Sinner - Dipendra Khatri - Lami Beach
 - If you get a question incorrect, you die!
 - Luckily, we created local storage and you can try again. 
 - Choose a Harry Potter character then enter a wizard name, click submit. 
+- Create a new game by entering a new wizard name, or continue a game by entering an existing name.
 
 ## Progress
 *2/22*
@@ -19,25 +21,33 @@ Adam Owada - Natalie Sinner - Dipendra Khatri - Lami Beach
   
 *2/24*
 - Performed pre-project 4
-  - Created flow chart, user story, feature task, software requirements, domain modeling, 
+  - Created data flow chart, user story, feature task, software requirements, and domain modeling
+- Set up website scaffold and proof of life
 - Implement wand as mouse
+- Constructor function for questions
 - Started coding questions for game
 
 *2/25*
+- Pair programmed
 - Expanded code 
-  - Added 3 more questions to game
+  - Added 4 more questions to game
   - Created form for user to enter name on index.html page
   - Added photos to about us page
   - Added music to index.html
+  - Added nav bar
+  - Added CSS styling to home page and game page
   
 *2/26*
-- Added local storage to game
+- Updated event listeners as a group
+- Added local storage to game as a group
   - Stored user name and saved location within game
   
 *2/27*
-- Adjusted local storage
+- Solved merge conflicts as a group
+- Debugged local storage as a group
   - Created local storage for tracking/saving deaths
   - Started chart for high game score
+- Started powerpoint presentation
   
 *2/29*
 - Continued work on local storage 
@@ -47,22 +57,42 @@ Adam Owada - Natalie Sinner - Dipendra Khatri - Lami Beach
   - Keeps track of how many times you die
   
 *3/2*
-- Implemented high score with local storage
+- Finished high score, username, and position for multiple users within local storage
+- CSS styling on home page and about us page
+- Finished score functionality, score shows up after success (number of deaths)
 
 *3/3*
+- CSS styling for the game page
+- Fixed reset game button
 - Started Power Point presentation
 - Started implementing avatars
   - Harry Potter, Hermione Granger, Ron Wesley as avatar characters 
+- Question image loads beneath title instead of beneath answers
   
 *3/4* 
+- Added pictures for each question
+- Added CSS styling for whole website
 - Added avatars to game page and throughout game. 
   - Avatar follows you through game
+- Updated data flow chart
   
 *3/5* 
+- Avatars work in local storage
 - Put final touches on app
+  - Resized images
   - Adjusted app for display purposes on projector
 - Worked on presenting app
   - Decided who was presenting/explaining what
+- Cleaned up code, removed unused image files
+  
+ *3/6*
+ - Got all images to work in our deployed github pages site
+ - Practiced presentation
+ 
+ *3/7*
+ - Practiced presentation
+ - Gave final presentation
+ 
 
 ## Wireframes
 [wireframe1]
