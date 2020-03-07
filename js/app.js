@@ -108,9 +108,9 @@ function SaveImages(src){
   harryArray.push(this);
 }
 
-new SaveImages('./images/harryavatar.png');
-new SaveImages('./images/hermoineavatar.png');
-new SaveImages('./images/ronavatar.png');
+new SaveImages('images/harryavatar.png');
+new SaveImages('images/hermoineavatar.png');
+new SaveImages('images/ronavatar.png');
 
 var pic1 = document.getElementById('image');
 
@@ -121,7 +121,7 @@ if (localStorage.getItem('currentPlayer') !== null) {
   var loadedLocalData = getFromLocalStorage(`player${getFromLocalStorage('currentPlayer')}`);
   new NewPlayer(loadedLocalData[0].username, loadedLocalData[0].playerAvatar, loadedLocalData[0].currentPosition, loadedLocalData[0].deathCount);
   loadQuestion(savedPlayer[0].currentPosition);
-  pic1.src = '../' + savedPlayer[0].playerAvatar;
+  pic1.src = savedPlayer[0].playerAvatar;
 } else {
   loadQuestion('death');
 }
