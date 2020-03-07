@@ -82,17 +82,23 @@ Adam Owada - Natalie Sinner - Dipendra Khatri - Lami Beach
 Linking to another .html page using a JS function, instead of <a> in html
 https://stackoverflow.com/questions/50925607/link-to-a-html-page-inside-a-javascript-function
 
-event listener for enter key
+Event listener for enter key
 https://stackoverflow.com/questions/14542062/eventlistener-enter-key/50993410
 
-Harry P font
+Harry Potter font
 https://www.dafont.com/harry-p.font
 
 CSS text outline
 https://css-tricks.com/adding-stroke-to-web-text/
 
+W3-Schools for the slideshow index
+https://www.w3schools.com/howto/howto_js_slideshow.asp
 
-### Pictures
+Harry Potter theme song
+https://soundcloud.com/user-551466939/harry-potter-theme-song
+
+
+### Image Sources 
 Devilsnare
 https://vignette.wikia.nocookie.net/harrypotter/images/a/a2/Harry-potter1-devil%27s_snare.jpg/revision/latest?cb=20170730023452
 
@@ -131,6 +137,18 @@ https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.thecalebking.com%2Fstore%2F
 
 Ravenclaw
 https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.thecalebking.com%2Fstore%2Fp227%2FHouse_Ravenclaw_-_Original_Watercolor_Painting.html&psig=AOvVaw0b_BQqSgK3KwqfirZ9WJsP&ust=1583466962528000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNiByue4gugCFQAAAAAdAAAAABAD
+
+Harry Potter cinemagraphs with instruction slideshow
+https://imgur.com/gallery/IQsZI
+
+Harry Potter avatar
+https://www.partyfiesta.com/en/harry-potter-cartoon/form-balloon-harry-potter-cartoon-224729.html
+
+Hermione avatar
+https://www.pinterest.com/pin/610519293217478110/
+
+Ron avatar
+https://www.redwolf.in/harry-potter-ron-weasley-sticker 
 
 
 
