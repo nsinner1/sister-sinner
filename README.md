@@ -3,6 +3,13 @@
 ## Members
 Adam Owada - Natalie Sinner - Dipendra Khatri - Lami Beach
 
+## How to Play
+- Test your Harry Potter knowledge and see if you can escape the Forbidden Forest. 
+- When given a prompt, use your knowledge to journey through the Forbidden Forest. 
+- If you get a question incorrect, you die!
+- Luckily, we created local storage and you can try again. 
+- Choose a Harry Potter character then enter a wizard name, click submit. 
+
 ## Progress
 *2/22*
 - Chose topic/idea for project
